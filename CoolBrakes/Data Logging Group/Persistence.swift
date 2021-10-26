@@ -13,9 +13,27 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+        
+        var increment: Int = 1
+        var defaultTime: Date = Date()
+        
+        for _ in 0..<3 {
+            var trip = Trip(context: viewContext)
+            trip.startDate = Date()
+            trip.idTrip = UUID()
+            trip.name = "Trip \(increment)"
+            increment += 1
+            
+            for _ in 0..<30{
+                var newItem = Snapshot(context: viewContext)
+                newItem.timestamp = defaultTime
+                newItem.idSnap = UUID()
+                newItem.sensorTemp = Int16.random(in: 100...150)
+                newItem.posit = Int16.random(in: 1...6)
+                trip.addToSnapshots(newItem)
+                defaultTime += 1
+                
+            }
         }
         do {
             try viewContext.save()
@@ -25,6 +43,7 @@ struct PersistenceController {
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
+        
         return result
     }()
 
@@ -52,4 +71,18 @@ struct PersistenceController {
             }
         })
     }
+    
+    func save() {
+        let context = container.viewContext
+        
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch{
+                print("Unable to save")
+
+            }
+        }
+    }
+    
 }

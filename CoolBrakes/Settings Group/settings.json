@@ -1,0 +1,32 @@
+{
+  "minTemp" : 50,
+  "avgObservedTemp" : [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "cautionTemp" : 175,
+  "maxObservedTemp" : [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "minObservedTemp" : [
+    100,
+    100,
+    100,
+    100,
+    100,
+    100
+  ],
+  "units" : "standard",
+  "axles" : 3,
+  "warningTemp" : 200,
+  "maxTemp" : 250
+}

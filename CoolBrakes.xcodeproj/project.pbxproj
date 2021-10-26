@@ -3,18 +3,44 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		180A196A26FC34EC0020A44A /* CoolBrakesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A196926FC34EC0020A44A /* CoolBrakesApp.swift */; };
-		180A196C26FC34EC0020A44A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A196B26FC34EC0020A44A /* ContentView.swift */; };
-		180A196E26FC34F20020A44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180A196D26FC34F20020A44A /* Assets.xcassets */; };
 		180A197126FC34F20020A44A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180A197026FC34F20020A44A /* Preview Assets.xcassets */; };
 		180A197326FC34F20020A44A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A197226FC34F20020A44A /* Persistence.swift */; };
 		180A197626FC34F20020A44A /* CoolBrakes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 180A197426FC34F20020A44A /* CoolBrakes.xcdatamodeld */; };
 		180A198126FC34F30020A44A /* CoolBrakesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A198026FC34F30020A44A /* CoolBrakesTests.swift */; };
 		180A198C26FC34F30020A44A /* CoolBrakesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A198B26FC34F30020A44A /* CoolBrakesUITests.swift */; };
+		180A19A026FC35440020A44A /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A199D26FC35440020A44A /* BLEManager.swift */; };
+		180A19A126FC35440020A44A /* RepeaterUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A199E26FC35440020A44A /* RepeaterUUID.swift */; };
+		180A19A826FC35570020A44A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19A726FC35570020A44A /* SettingsView.swift */; };
+		180A19B326FC35660020A44A /* SensorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19AD26FC35660020A44A /* SensorData.swift */; };
+		180A19B426FC35660020A44A /* SensorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19AE26FC35660020A44A /* SensorView.swift */; };
+		180A19B526FC35660020A44A /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19AF26FC35660020A44A /* GaugeView.swift */; };
+		180A19B626FC35660020A44A /* GaugeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19B026FC35660020A44A /* GaugeDetailView.swift */; };
+		180A19B726FC35660020A44A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19B126FC35660020A44A /* Settings.swift */; };
+		180A19B826FC35660020A44A /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19B226FC35660020A44A /* ModelData.swift */; };
+		180A19BD26FC35760020A44A /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 180A19BC26FC35750020A44A /* settings.json */; };
+		180A19C526FC35FF0020A44A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19C426FC35FF0020A44A /* ContentView.swift */; };
+		180A19CA26FC367D0020A44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180A19C926FC367D0020A44A /* Assets.xcassets */; };
+		180A19D326FC37240020A44A /* TTGaugeView in Frameworks */ = {isa = PBXBuildFile; productRef = 180A19D226FC37240020A44A /* TTGaugeView */; };
+		180A19E726FC37540020A44A /* DataLoggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19E426FC37530020A44A /* DataLoggingView.swift */; };
+		180A8DEA2711BB4000C5649E /* TripParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A8DE92711BB3F00C5649E /* TripParser.swift */; };
+		180E50B6271088EB007A54C6 /* MultilineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E50B5271088EB007A54C6 /* MultilineChartView.swift */; };
+		181388B62728247D009D4142 /* TripEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181388B52728247D009D4142 /* TripEditorView.swift */; };
+		181388BC27285C6F009D4142 /* SnowflakeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181388BB27285C6F009D4142 /* SnowflakeGroup.swift */; };
+		18338E59271848B30046B053 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18338E55271848B30046B053 /* Trip+CoreDataClass.swift */; };
+		18338E5A271848B30046B053 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18338E56271848B30046B053 /* Trip+CoreDataProperties.swift */; };
+		18338E5B271848B30046B053 /* Snapshot+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18338E57271848B30046B053 /* Snapshot+CoreDataClass.swift */; };
+		18338E5C271848B30046B053 /* Snapshot+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18338E58271848B30046B053 /* Snapshot+CoreDataProperties.swift */; };
+		187E23DD2725062F00ED84D8 /* ChartableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E23DC2725062F00ED84D8 /* ChartableData.swift */; };
+		18DA176E271FE74B003D7740 /* SavedTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA176D271FE74B003D7740 /* SavedTripView.swift */; };
+		18F7A19B271D26E00085DD1F /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7A19A271D26E00085DD1F /* DummyView.swift */; };
+		232FD075B0D13DB2E953370E /* Pods_CoolBrakesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDEE9C3D13A85E2255BB97D /* Pods_CoolBrakesTests.framework */; };
+		8BE84E10CFD83F6C03AE2543 /* Pods_CoolBrakes_CoolBrakesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D998D85BCBCC63EA2FD0307C /* Pods_CoolBrakes_CoolBrakesUITests.framework */; };
+		FAAD5F47BCC978419F82B8E5 /* Pods_CoolBrakes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810DCF06CBB9515EBFE3076A /* Pods_CoolBrakes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1469F05AC4C67EE9C1EFABD4 /* Pods-CoolBrakes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolBrakes.release.xcconfig"; path = "Target Support Files/Pods-CoolBrakes/Pods-CoolBrakes.release.xcconfig"; sourceTree = "<group>"; };
 		180A196626FC34EC0020A44A /* CoolBrakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolBrakes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		180A196926FC34EC0020A44A /* CoolBrakesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolBrakesApp.swift; sourceTree = "<group>"; };
-		180A196B26FC34EC0020A44A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		180A196D26FC34F20020A44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		180A197026FC34F20020A44A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		180A197226FC34F20020A44A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		180A197526FC34F20020A44A /* CoolBrakes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoolBrakes.xcdatamodel; sourceTree = "<group>"; };
@@ -49,6 +74,38 @@
 		180A198726FC34F30020A44A /* CoolBrakesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolBrakesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		180A198B26FC34F30020A44A /* CoolBrakesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolBrakesUITests.swift; sourceTree = "<group>"; };
 		180A198D26FC34F30020A44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		180A199D26FC35440020A44A /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		180A199E26FC35440020A44A /* RepeaterUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeaterUUID.swift; sourceTree = "<group>"; };
+		180A19A726FC35570020A44A /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		180A19AD26FC35660020A44A /* SensorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorData.swift; sourceTree = "<group>"; };
+		180A19AE26FC35660020A44A /* SensorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorView.swift; sourceTree = "<group>"; };
+		180A19AF26FC35660020A44A /* GaugeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
+		180A19B026FC35660020A44A /* GaugeDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaugeDetailView.swift; sourceTree = "<group>"; };
+		180A19B126FC35660020A44A /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		180A19B226FC35660020A44A /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		180A19BC26FC35750020A44A /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
+		180A19C426FC35FF0020A44A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		180A19C926FC367D0020A44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../BrakeSensor/BrakeSensor/Assets.xcassets; sourceTree = "<group>"; };
+		180A19E426FC37530020A44A /* DataLoggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoggingView.swift; sourceTree = "<group>"; };
+		180A8DE92711BB3F00C5649E /* TripParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripParser.swift; sourceTree = "<group>"; };
+		180E50B5271088EB007A54C6 /* MultilineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineChartView.swift; sourceTree = "<group>"; };
+		181388B52728247D009D4142 /* TripEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripEditorView.swift; sourceTree = "<group>"; };
+		181388BB27285C6F009D4142 /* SnowflakeGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowflakeGroup.swift; sourceTree = "<group>"; };
+		18338E55271848B30046B053 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
+		18338E56271848B30046B053 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		18338E57271848B30046B053 /* Snapshot+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snapshot+CoreDataClass.swift"; sourceTree = "<group>"; };
+		18338E58271848B30046B053 /* Snapshot+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snapshot+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		187E23DC2725062F00ED84D8 /* ChartableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartableData.swift; sourceTree = "<group>"; };
+		18DA176D271FE74B003D7740 /* SavedTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTripView.swift; sourceTree = "<group>"; };
+		18F7A19A271D26E00085DD1F /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
+		19BBD428B9E265D7F4204F6E /* Pods-CoolBrakes-CoolBrakesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolBrakes-CoolBrakesUITests.release.xcconfig"; path = "Target Support Files/Pods-CoolBrakes-CoolBrakesUITests/Pods-CoolBrakes-CoolBrakesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4381626D933ECF9E883D58B2 /* Pods-CoolBrakes-CoolBrakesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolBrakes-CoolBrakesUITests.debug.xcconfig"; path = "Target Support Files/Pods-CoolBrakes-CoolBrakesUITests/Pods-CoolBrakes-CoolBrakesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		46A685111AA0E294AD49865E /* Pods-CoolBrakes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolBrakes.debug.xcconfig"; path = "Target Support Files/Pods-CoolBrakes/Pods-CoolBrakes.debug.xcconfig"; sourceTree = "<group>"; };
+		6BDEE9C3D13A85E2255BB97D /* Pods_CoolBrakesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolBrakesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		810DCF06CBB9515EBFE3076A /* Pods_CoolBrakes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolBrakes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9349A05E4E55C0EA00164682 /* Pods-CoolBrakesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolBrakesTests.debug.xcconfig"; path = "Target Support Files/Pods-CoolBrakesTests/Pods-CoolBrakesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B9BA4739EFDB4C0AB6113D4E /* Pods-CoolBrakesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolBrakesTests.release.xcconfig"; path = "Target Support Files/Pods-CoolBrakesTests/Pods-CoolBrakesTests.release.xcconfig"; sourceTree = "<group>"; };
+		D998D85BCBCC63EA2FD0307C /* Pods_CoolBrakes_CoolBrakesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolBrakes_CoolBrakesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +113,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180A19D326FC37240020A44A /* TTGaugeView in Frameworks */,
+				FAAD5F47BCC978419F82B8E5 /* Pods_CoolBrakes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				232FD075B0D13DB2E953370E /* Pods_CoolBrakesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE84E10CFD83F6C03AE2543 /* Pods_CoolBrakes_CoolBrakesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +144,8 @@
 				180A197F26FC34F30020A44A /* CoolBrakesTests */,
 				180A198A26FC34F30020A44A /* CoolBrakesUITests */,
 				180A196726FC34EC0020A44A /* Products */,
+				BBDFD5E6718EC45526211476 /* Pods */,
+				B20095B220A6EE8A1857F28C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,12 +162,15 @@
 		180A196826FC34EC0020A44A /* CoolBrakes */ = {
 			isa = PBXGroup;
 			children = (
+				181388BA27285C4B009D4142 /* Icon Group */,
+				180A19E226FC37520020A44A /* Data Logging Group */,
+				180A19AC26FC35660020A44A /* Sensor Group */,
+				180A19A626FC35570020A44A /* Settings Group */,
+				180A199C26FC35440020A44A /* BLE Group */,
 				180A196926FC34EC0020A44A /* CoolBrakesApp.swift */,
-				180A196B26FC34EC0020A44A /* ContentView.swift */,
-				180A196D26FC34F20020A44A /* Assets.xcassets */,
-				180A197226FC34F20020A44A /* Persistence.swift */,
+				180A19C426FC35FF0020A44A /* ContentView.swift */,
+				180A19C926FC367D0020A44A /* Assets.xcassets */,
 				180A197726FC34F20020A44A /* Info.plist */,
-				180A197426FC34F20020A44A /* CoolBrakes.xcdatamodeld */,
 				180A196F26FC34F20020A44A /* Preview Content */,
 			);
 			path = CoolBrakes;
@@ -136,6 +202,88 @@
 			path = CoolBrakesUITests;
 			sourceTree = "<group>";
 		};
+		180A199C26FC35440020A44A /* BLE Group */ = {
+			isa = PBXGroup;
+			children = (
+				180A199D26FC35440020A44A /* BLEManager.swift */,
+				180A199E26FC35440020A44A /* RepeaterUUID.swift */,
+			);
+			path = "BLE Group";
+			sourceTree = "<group>";
+		};
+		180A19A626FC35570020A44A /* Settings Group */ = {
+			isa = PBXGroup;
+			children = (
+				180A19BC26FC35750020A44A /* settings.json */,
+				180A19A726FC35570020A44A /* SettingsView.swift */,
+			);
+			path = "Settings Group";
+			sourceTree = "<group>";
+		};
+		180A19AC26FC35660020A44A /* Sensor Group */ = {
+			isa = PBXGroup;
+			children = (
+				180A19AD26FC35660020A44A /* SensorData.swift */,
+				180A19AE26FC35660020A44A /* SensorView.swift */,
+				180A19AF26FC35660020A44A /* GaugeView.swift */,
+				180A19B026FC35660020A44A /* GaugeDetailView.swift */,
+				180A19B126FC35660020A44A /* Settings.swift */,
+				180A19B226FC35660020A44A /* ModelData.swift */,
+			);
+			path = "Sensor Group";
+			sourceTree = "<group>";
+		};
+		180A19E226FC37520020A44A /* Data Logging Group */ = {
+			isa = PBXGroup;
+			children = (
+				18338E55271848B30046B053 /* Trip+CoreDataClass.swift */,
+				18338E56271848B30046B053 /* Trip+CoreDataProperties.swift */,
+				18DA176D271FE74B003D7740 /* SavedTripView.swift */,
+				181388B52728247D009D4142 /* TripEditorView.swift */,
+				187E23DC2725062F00ED84D8 /* ChartableData.swift */,
+				18338E57271848B30046B053 /* Snapshot+CoreDataClass.swift */,
+				18338E58271848B30046B053 /* Snapshot+CoreDataProperties.swift */,
+				180A19E426FC37530020A44A /* DataLoggingView.swift */,
+				180A8DE92711BB3F00C5649E /* TripParser.swift */,
+				180A197426FC34F20020A44A /* CoolBrakes.xcdatamodeld */,
+				180A197226FC34F20020A44A /* Persistence.swift */,
+				18F7A19A271D26E00085DD1F /* DummyView.swift */,
+				180E50B5271088EB007A54C6 /* MultilineChartView.swift */,
+			);
+			path = "Data Logging Group";
+			sourceTree = "<group>";
+		};
+		181388BA27285C4B009D4142 /* Icon Group */ = {
+			isa = PBXGroup;
+			children = (
+				181388BB27285C6F009D4142 /* SnowflakeGroup.swift */,
+			);
+			path = "Icon Group";
+			sourceTree = "<group>";
+		};
+		B20095B220A6EE8A1857F28C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				810DCF06CBB9515EBFE3076A /* Pods_CoolBrakes.framework */,
+				D998D85BCBCC63EA2FD0307C /* Pods_CoolBrakes_CoolBrakesUITests.framework */,
+				6BDEE9C3D13A85E2255BB97D /* Pods_CoolBrakesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BBDFD5E6718EC45526211476 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46A685111AA0E294AD49865E /* Pods-CoolBrakes.debug.xcconfig */,
+				1469F05AC4C67EE9C1EFABD4 /* Pods-CoolBrakes.release.xcconfig */,
+				4381626D933ECF9E883D58B2 /* Pods-CoolBrakes-CoolBrakesUITests.debug.xcconfig */,
+				19BBD428B9E265D7F4204F6E /* Pods-CoolBrakes-CoolBrakesUITests.release.xcconfig */,
+				9349A05E4E55C0EA00164682 /* Pods-CoolBrakesTests.debug.xcconfig */,
+				B9BA4739EFDB4C0AB6113D4E /* Pods-CoolBrakesTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,15 +291,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 180A199026FC34F30020A44A /* Build configuration list for PBXNativeTarget "CoolBrakes" */;
 			buildPhases = (
+				1E80E14717C99782E7D5428D /* [CP] Check Pods Manifest.lock */,
 				180A196226FC34EC0020A44A /* Sources */,
 				180A196326FC34EC0020A44A /* Frameworks */,
 				180A196426FC34EC0020A44A /* Resources */,
+				4580D87EC3DCFE7323267A04 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = CoolBrakes;
+			packageProductDependencies = (
+				180A19D226FC37240020A44A /* TTGaugeView */,
+			);
 			productName = CoolBrakes;
 			productReference = 180A196626FC34EC0020A44A /* CoolBrakes.app */;
 			productType = "com.apple.product-type.application";
@@ -160,6 +313,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 180A199326FC34F30020A44A /* Build configuration list for PBXNativeTarget "CoolBrakesTests" */;
 			buildPhases = (
+				9A3257825F468509CF678BC2 /* [CP] Check Pods Manifest.lock */,
 				180A197826FC34F30020A44A /* Sources */,
 				180A197926FC34F30020A44A /* Frameworks */,
 				180A197A26FC34F30020A44A /* Resources */,
@@ -178,9 +332,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 180A199626FC34F30020A44A /* Build configuration list for PBXNativeTarget "CoolBrakesUITests" */;
 			buildPhases = (
+				222D6B951E97E2FDDE311334 /* [CP] Check Pods Manifest.lock */,
 				180A198326FC34F30020A44A /* Sources */,
 				180A198426FC34F30020A44A /* Frameworks */,
 				180A198526FC34F30020A44A /* Resources */,
+				9EDD43E8B1C59CB91C6AF4EC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -223,6 +379,9 @@
 				Base,
 			);
 			mainGroup = 180A195D26FC34EC0020A44A;
+			packageReferences = (
+				180A19D126FC37240020A44A /* XCRemoteSwiftPackageReference "TTGaugeView" */,
+			);
 			productRefGroup = 180A196726FC34EC0020A44A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -239,8 +398,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180A19BD26FC35760020A44A /* settings.json in Resources */,
 				180A197126FC34F20020A44A /* Preview Assets.xcassets in Resources */,
-				180A196E26FC34F20020A44A /* Assets.xcassets in Resources */,
+				180A19CA26FC367D0020A44A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,15 +420,139 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1E80E14717C99782E7D5428D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoolBrakes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		222D6B951E97E2FDDE311334 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoolBrakes-CoolBrakesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4580D87EC3DCFE7323267A04 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoolBrakes/Pods-CoolBrakes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoolBrakes/Pods-CoolBrakes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoolBrakes/Pods-CoolBrakes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A3257825F468509CF678BC2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoolBrakesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9EDD43E8B1C59CB91C6AF4EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoolBrakes-CoolBrakesUITests/Pods-CoolBrakes-CoolBrakesUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoolBrakes-CoolBrakesUITests/Pods-CoolBrakes-CoolBrakesUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoolBrakes-CoolBrakesUITests/Pods-CoolBrakes-CoolBrakesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		180A196226FC34EC0020A44A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180A19B426FC35660020A44A /* SensorView.swift in Sources */,
+				180A19E726FC37540020A44A /* DataLoggingView.swift in Sources */,
+				180A19A126FC35440020A44A /* RepeaterUUID.swift in Sources */,
+				18DA176E271FE74B003D7740 /* SavedTripView.swift in Sources */,
+				180A19C526FC35FF0020A44A /* ContentView.swift in Sources */,
+				180A19B726FC35660020A44A /* Settings.swift in Sources */,
+				180A8DEA2711BB4000C5649E /* TripParser.swift in Sources */,
+				18338E5B271848B30046B053 /* Snapshot+CoreDataClass.swift in Sources */,
+				180A19A826FC35570020A44A /* SettingsView.swift in Sources */,
 				180A197626FC34F20020A44A /* CoolBrakes.xcdatamodeld in Sources */,
+				18338E59271848B30046B053 /* Trip+CoreDataClass.swift in Sources */,
 				180A197326FC34F20020A44A /* Persistence.swift in Sources */,
-				180A196C26FC34EC0020A44A /* ContentView.swift in Sources */,
+				180A19A026FC35440020A44A /* BLEManager.swift in Sources */,
+				180A19B626FC35660020A44A /* GaugeDetailView.swift in Sources */,
+				180A19B526FC35660020A44A /* GaugeView.swift in Sources */,
+				187E23DD2725062F00ED84D8 /* ChartableData.swift in Sources */,
+				181388B62728247D009D4142 /* TripEditorView.swift in Sources */,
+				180E50B6271088EB007A54C6 /* MultilineChartView.swift in Sources */,
+				18338E5C271848B30046B053 /* Snapshot+CoreDataProperties.swift in Sources */,
+				181388BC27285C6F009D4142 /* SnowflakeGroup.swift in Sources */,
+				18F7A19B271D26E00085DD1F /* DummyView.swift in Sources */,
 				180A196A26FC34EC0020A44A /* CoolBrakesApp.swift in Sources */,
+				180A19B326FC35660020A44A /* SensorData.swift in Sources */,
+				18338E5A271848B30046B053 /* Trip+CoreDataProperties.swift in Sources */,
+				180A19B826FC35660020A44A /* ModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +706,7 @@
 		};
 		180A199126FC34F30020A44A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46A685111AA0E294AD49865E /* Pods-CoolBrakes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -444,6 +729,7 @@
 		};
 		180A199226FC34F30020A44A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1469F05AC4C67EE9C1EFABD4 /* Pods-CoolBrakes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -466,6 +752,7 @@
 		};
 		180A199426FC34F30020A44A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9349A05E4E55C0EA00164682 /* Pods-CoolBrakesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -488,6 +775,7 @@
 		};
 		180A199526FC34F30020A44A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9BA4739EFDB4C0AB6113D4E /* Pods-CoolBrakesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -510,6 +798,7 @@
 		};
 		180A199726FC34F30020A44A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4381626D933ECF9E883D58B2 /* Pods-CoolBrakes-CoolBrakesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -530,6 +819,7 @@
 		};
 		180A199826FC34F30020A44A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19BBD428B9E265D7F4204F6E /* Pods-CoolBrakes-CoolBrakesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -588,6 +878,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		180A19D126FC37240020A44A /* XCRemoteSwiftPackageReference "TTGaugeView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/honkmaster/TTGaugeView/";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		180A19D226FC37240020A44A /* TTGaugeView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 180A19D126FC37240020A44A /* XCRemoteSwiftPackageReference "TTGaugeView" */;
+			productName = TTGaugeView;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		180A197426FC34F20020A44A /* CoolBrakes.xcdatamodeld */ = {
