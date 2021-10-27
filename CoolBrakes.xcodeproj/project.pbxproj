@@ -24,7 +24,6 @@
 		180A19B826FC35660020A44A /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19B226FC35660020A44A /* ModelData.swift */; };
 		180A19BD26FC35760020A44A /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 180A19BC26FC35750020A44A /* settings.json */; };
 		180A19C526FC35FF0020A44A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19C426FC35FF0020A44A /* ContentView.swift */; };
-		180A19CA26FC367D0020A44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180A19C926FC367D0020A44A /* Assets.xcassets */; };
 		180A19D326FC37240020A44A /* TTGaugeView in Frameworks */ = {isa = PBXBuildFile; productRef = 180A19D226FC37240020A44A /* TTGaugeView */; };
 		180A19E726FC37540020A44A /* DataLoggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19E426FC37530020A44A /* DataLoggingView.swift */; };
 		180A8DEA2711BB4000C5649E /* TripParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A8DE92711BB3F00C5649E /* TripParser.swift */; };
@@ -37,6 +36,7 @@
 		1823C964272969AE001BD871 /* Snapshot+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C960272969AE001BD871 /* Snapshot+CoreDataProperties.swift */; };
 		1823C965272969AE001BD871 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C961272969AE001BD871 /* Trip+CoreDataClass.swift */; };
 		1823C966272969AE001BD871 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C962272969AE001BD871 /* Trip+CoreDataProperties.swift */; };
+		1823C9722729706E001BD871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1823C9712729706E001BD871 /* Assets.xcassets */; };
 		187E23DD2725062F00ED84D8 /* ChartableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E23DC2725062F00ED84D8 /* ChartableData.swift */; };
 		18DA176E271FE74B003D7740 /* SavedTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA176D271FE74B003D7740 /* SavedTripView.swift */; };
 		18F7A19B271D26E00085DD1F /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7A19A271D26E00085DD1F /* DummyView.swift */; };
@@ -87,7 +87,6 @@
 		180A19B226FC35660020A44A /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		180A19BC26FC35750020A44A /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
 		180A19C426FC35FF0020A44A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		180A19C926FC367D0020A44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../BrakeSensor/BrakeSensor/Assets.xcassets; sourceTree = "<group>"; };
 		180A19E426FC37530020A44A /* DataLoggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoggingView.swift; sourceTree = "<group>"; };
 		180A8DE92711BB3F00C5649E /* TripParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripParser.swift; sourceTree = "<group>"; };
 		180E50B5271088EB007A54C6 /* MultilineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineChartView.swift; sourceTree = "<group>"; };
@@ -99,6 +98,7 @@
 		1823C960272969AE001BD871 /* Snapshot+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snapshot+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1823C961272969AE001BD871 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1823C962272969AE001BD871 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1823C9712729706E001BD871 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		187E23DC2725062F00ED84D8 /* ChartableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartableData.swift; sourceTree = "<group>"; };
 		18DA176D271FE74B003D7740 /* SavedTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTripView.swift; sourceTree = "<group>"; };
 		18F7A19A271D26E00085DD1F /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 				180A199C26FC35440020A44A /* BLE Group */,
 				180A196926FC34EC0020A44A /* CoolBrakesApp.swift */,
 				180A19C426FC35FF0020A44A /* ContentView.swift */,
-				180A19C926FC367D0020A44A /* Assets.xcassets */,
+				1823C9712729706E001BD871 /* Assets.xcassets */,
 				180A197726FC34F20020A44A /* Info.plist */,
 				180A196F26FC34F20020A44A /* Preview Content */,
 			);
@@ -421,8 +421,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				180A19BD26FC35760020A44A /* settings.json in Resources */,
+				1823C9722729706E001BD871 /* Assets.xcassets in Resources */,
 				180A197126FC34F20020A44A /* Preview Assets.xcassets in Resources */,
-				180A19CA26FC367D0020A44A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
