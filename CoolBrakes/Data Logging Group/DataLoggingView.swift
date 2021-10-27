@@ -17,6 +17,7 @@ struct DataLoggingView: View {
     var settings: Settings
     //public var activeTrip: Trip { return Trip(context: viewContext) }
     @EnvironmentObject var bleManager: BLEManager
+    @EnvironmentObject var locationManager: LocationManager
 
 
 
@@ -149,9 +150,12 @@ struct DataLoggingView: View {
                     HStack {
                         VStack {
                             if !trips.isEmpty {
-                            Text("Start Date: \(formatter.string(from: trips[selectedTripIdx].startDate ?? Date()))")
-                                .padding(.top, 32.0)
-                            Text("Trip Name: \(trips[selectedTripIdx].name ?? defaultName)")
+                                Text("Start Date: \(formatter.string(from: trips[selectedTripIdx].startDate ?? Date()))")
+                                    .padding(.top, 32.0)
+                                Text("Trip Name: \(trips[selectedTripIdx].name ?? defaultName)")
+                                //Text("Current Speed: \(((trips[selectedTripIdx].snapArray.last?.speed ?? 1)))")
+                                Text("Current Speed: \(locationManager.speed ?? 0)")
+                                Text("Current Elevation: \(locationManager.altitude ?? 0)")
                             }
                             Spacer()
                             
@@ -212,6 +216,8 @@ struct DataLoggingView: View {
                     snap.posit = Int16(bleManager.incomingIntArray[0])
                     snap.sensorTemp = Int16(bleManager.incomingIntArray[1])
                     snap.timestamp = Date()
+                    snap.altitude = locationManager.altitude ?? 0
+                    snap.speed = locationManager.speed ?? 0
                     trips[selectedTripIdx].addToSnapshots(snap)
                     
                     do {
@@ -264,6 +270,7 @@ extension Array {
 struct DataLoggingView_Previews: PreviewProvider {
     static var importedSettings = ModelData().importedSettings
     static var bleManager = BLEManager()
+    static var locationManager = LocationManager()
 
 
     static let context = PersistenceController.preview.container.viewContext
@@ -273,5 +280,7 @@ struct DataLoggingView_Previews: PreviewProvider {
         DataLoggingView(settings: importedSettings, showSettings: true, tripIsActive: .constant(false))
             .environment(\.managedObjectContext, context)
             .environmentObject(bleManager)
+            .environmentObject(locationManager)
     }
 }
+

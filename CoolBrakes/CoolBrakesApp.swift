@@ -12,6 +12,8 @@ import SwiftUI
 struct CoolBrakesApp: App {
     @StateObject private var modelData = ModelData()
     @StateObject var bleManager = BLEManager()
+    @StateObject var notificationManager = Notifications()
+    @StateObject var locationManager = LocationManager()
     @Environment(\.scenePhase) var scenePhase
     let persistenceController = PersistenceController.shared
 
@@ -21,6 +23,8 @@ struct CoolBrakesApp: App {
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(modelData)
                 .environmentObject(bleManager)
+                .environmentObject(notificationManager)
+                .environmentObject(locationManager)
         }
         .onChange(of: scenePhase) { _ in
             persistenceController.save()

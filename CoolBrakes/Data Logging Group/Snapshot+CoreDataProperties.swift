@@ -2,7 +2,7 @@
 //  Snapshot+CoreDataProperties.swift
 //  CoolBrakes
 //
-//  Created by James Ford on 10/14/21.
+//  Created by James Ford on 10/27/21.
 //
 //
 
@@ -20,6 +20,8 @@ extension Snapshot {
     @NSManaged public var posit: Int16
     @NSManaged public var sensorTemp: Int16
     @NSManaged public var timestamp: Date?
+    @NSManaged public var speed: Double
+    @NSManaged public var altitude: Double
     @NSManaged public var trip: Trip?
 
 }

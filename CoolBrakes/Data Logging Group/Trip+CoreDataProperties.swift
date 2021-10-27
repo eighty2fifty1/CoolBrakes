@@ -2,7 +2,7 @@
 //  Trip+CoreDataProperties.swift
 //  CoolBrakes
 //
-//  Created by James Ford on 10/14/21.
+//  Created by James Ford on 10/27/21.
 //
 //
 
@@ -20,8 +20,7 @@ extension Trip {
     @NSManaged public var name: String?
     @NSManaged public var startDate: Date?
     @NSManaged public var snapshots: NSOrderedSet?
-    @NSManaged public var tripNotes: String?
-    
+
     public var snapArray: [Snapshot] {
         return snapshots?.array as? [Snapshot] ?? []
         
@@ -32,6 +31,7 @@ extension Trip {
         dateFormatter.dateFormat = "MM/dd/YY HH:mm"
         return dateFormatter.string(from: startDate ?? Date())
     }
+    
 }
 
 // MARK: Generated accessors for snapshots

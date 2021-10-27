@@ -35,7 +35,8 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
     @Published var RC = SensorData()
     
     private var incomingStringArray: [String] = []
-    @Published var incomingIntArray: [Int] = []
+    @Published var incomingIntArray: [Int] = [0, 0, 0]
+    @Published var incomingStatusArray: [Int] = []
     
         
     let customLog = Logger()
@@ -128,8 +129,8 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
         if characteristic.uuid == RepeaterUUID.repeaterMsgCharUUID {
             statusMsg = stringFromData
             incomingStringArray = statusMsg.components(separatedBy: "i")
-            incomingIntArray = incomingStringArray.map{Int($0)!}
-            parseStatusMsgData(incoming: self.incomingIntArray)
+            incomingStatusArray = incomingStringArray.map{Int($0)!}
+            parseStatusMsgData(incoming: self.incomingStatusArray)
             //customLog.notice("Status: \(self.statusMsg)")
             
             

@@ -30,6 +30,8 @@ struct PersistenceController {
                 newItem.idSnap = UUID()
                 newItem.sensorTemp = Int16.random(in: 100...150)
                 newItem.posit = Int16.random(in: 1...6)
+                //newItem.elevation = NSNumber(value: Double.random(in: 30...60))
+                //newItem.speed = NSNumber(value: Double.random(in: 0...5000))
                 trip.addToSnapshots(newItem)
                 defaultTime += 1
                 

@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct SensorView: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var bleManager: BLEManager
+    //@EnvironmentObject var locationManager: LocationManager
+    
     var tempArray: [Int] {
         return [bleManager.LF.temp, bleManager.RF.temp, bleManager.LR.temp, bleManager.RR.temp, bleManager.LC.temp, bleManager.RC.temp]
     }
@@ -99,7 +102,12 @@ struct SensorView: View {
             }
         }
     }
+
 }
+
+extension SensorView {
+}
+
 struct SensorView_Previews: PreviewProvider {
     static var modelData = ModelData()
     static var bleManager = BLEManager()
