@@ -26,15 +26,15 @@ struct SensorView: View {
                 Spacer()
                 VStack{
                     Spacer()
-                    if bleManager.LF.batt < 25 {
+                    if bleManager.LF.batt < 20 {
                         Image(systemName: "battery.25")
                     }
                     Spacer()
-                    if bleManager.LC.batt < 25 && modelData.importedSettings.axles > 2{
+                    if bleManager.LC.batt < 20 && modelData.importedSettings.axles > 2{
                         Image(systemName: "battery.25")
                     }
                     Spacer()
-                    if bleManager.LR.batt < 25 && modelData.importedSettings.axles > 1 {
+                    if bleManager.LR.batt < 20 && modelData.importedSettings.axles > 1 {
                         Image(systemName: "battery.25")
                     }
                     Spacer()
@@ -83,15 +83,15 @@ struct SensorView: View {
                 
                 VStack{
                     Spacer()
-                    if bleManager.RF.batt < 25 {
+                    if bleManager.RF.batt < 20 {
                         Image(systemName: "battery.25")
                     }
                     Spacer()
-                    if bleManager.RC.batt < 25 && modelData.importedSettings.axles > 2 {
+                    if bleManager.RC.batt < 20 && modelData.importedSettings.axles > 2 {
                         Image(systemName: "battery.25")
                     }
                     Spacer()
-                    if bleManager.RR.batt < 25 && modelData.importedSettings.axles > 1 {
+                    if bleManager.RR.batt < 20 && modelData.importedSettings.axles > 1 {
                         Image(systemName: "battery.25")
                     }
                     Spacer()

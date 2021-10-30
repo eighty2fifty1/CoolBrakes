@@ -19,6 +19,8 @@ struct TripParser: View {
     @Binding var dispRR: Bool
     @Binding var dispLC: Bool
     @Binding var dispRC: Bool
+    @Binding var dispSpeed: Bool
+    @Binding var dispElevation: Bool
     
     public var tripTime: Date {
         return trip.startDate ?? Date() //should protect from nil value
@@ -27,53 +29,73 @@ struct TripParser: View {
     
     //var tripArray: [Snapshot] = []
     
-    private var lf: [ChartDataEntry] {
+    private var lf: [ChartDataEntry]? {
         if dispLF {
             return parseTemp(sortedSnapArray: sortPositions(index: 1, snapArray: trip.snapArray))
         }
-        return []
+        return nil
     }
-    private var rf: [ChartDataEntry] {
+    private var rf: [ChartDataEntry]? {
         if dispRF {
             return parseTemp(sortedSnapArray: sortPositions(index: 2, snapArray: trip.snapArray))
         }
-        return []
+        return nil
     }
-    private var lr: [ChartDataEntry] {
+    private var lr: [ChartDataEntry]? {
         if dispLR {
             return parseTemp(sortedSnapArray: sortPositions(index: 3, snapArray: trip.snapArray))
         }
-        return []
+        return nil
     }
-    private var rr: [ChartDataEntry] {
+    private var rr: [ChartDataEntry]? {
         if dispRR {
             return parseTemp(sortedSnapArray: sortPositions(index: 4, snapArray: trip.snapArray))
         }
-        return []
+        return nil
     }
-    private var lc: [ChartDataEntry] {
+    private var lc: [ChartDataEntry]? {
         if dispLC {
             return parseTemp(sortedSnapArray: sortPositions(index: 5, snapArray: trip.snapArray))
         }
-        return []
+        return nil
     }
-    private var rc: [ChartDataEntry] {
+    private var rc: [ChartDataEntry]? {
         if dispRC {
             return parseTemp(sortedSnapArray: sortPositions(index: 6, snapArray: trip.snapArray))
         }
-        return []
+        return nil
     }
+    
+    private var speedPlot: [ChartDataEntry]? {
+        if dispSpeed {
+            return parseSpeed(snapArray: trip.snapArray)
+        }
+        return nil
+    }
+    
+    private var elevPlot: [ChartDataEntry]? {
+        if dispElevation {
+            return parseElevation(snapArray: trip.snapArray)
+        }
+        return nil
+    }
+    
+    /*
+    private var speed: [ChartDataEntry] {
+        var s: [ChartDataEntry]
+        for n in 0..<trip.snapArray.count {
+            s.append(parseTemp(sortedSnapArray: <#T##[Snapshot]#>))
+        }
+    }
+ */
 
     var body: some View {
         VStack {
             //Text("\(trip)")
             
-            MultilineChartView(tempLF: lf, tempRF: rf, tempLR: lr, tempRR: rr, tempLC: lc, tempRC: rc, tripTime: tripTime
- )
-            
+            MultilineChartView(tempLF: lf, tempRF: rf, tempLR: lr, tempRR: rr, tempLC: lc, tempRC: rc, elevation: elevPlot, speed: speedPlot, tripTime: tripTime
+            )
         }
-        
- 
     }
     //var arrayOfTrips: [Trip]
 //var tripArrayCount: Int
@@ -107,9 +129,7 @@ struct TripParser: View {
             default:
                 return returnArray[index - 1]
             }
-        
         }
-        
         return returnArray[index - 1]
     }
     
@@ -125,7 +145,30 @@ struct TripParser: View {
             
             chartData.append(ChartDataEntry(x: xVal, y: yVal))
         }
-        
+        return chartData
+    }
+    
+    func parseElevation(snapArray: [Snapshot]) -> [ChartDataEntry] {
+        var chartData: [ChartDataEntry] = []
+        var xVal: Double = 0
+        var yVal: Double = 0
+        for n in 0..<snapArray.count {
+            yVal = snapArray[n].altitude
+            xVal = snapArray[n].timestamp!.timeIntervalSince(tripTime)
+            chartData.append(ChartDataEntry(x: xVal, y: yVal))
+        }
+        return chartData
+    }
+    
+    func parseSpeed(snapArray: [Snapshot]) -> [ChartDataEntry] {
+        var chartData: [ChartDataEntry] = []
+        var xVal: Double = 0
+        var yVal: Double = 0
+        for n in 0..<snapArray.count {
+            yVal = snapArray[n].speed
+            xVal = snapArray[n].timestamp!.timeIntervalSince(tripTime)
+            chartData.append(ChartDataEntry(x: xVal, y: yVal))
+        }
         return chartData
     }
 }
@@ -137,8 +180,7 @@ struct TripParser_Previews: PreviewProvider {
         let previewTrip = PersistenceController.preview.container.viewContext.registeredObjects.first(where: {$0 is Trip}) as! Trip
         
         //must use .constant for bindings
-        TripParser(trip: previewTrip, dispLF: .constant(false), dispRF: .constant(false), dispLR: .constant(false), dispRR: .constant(false), dispLC: .constant(false), dispRC: .constant(false))
+        TripParser(trip: previewTrip, dispLF: .constant(false), dispRF: .constant(false), dispLR: .constant(false), dispRR: .constant(false), dispLC: .constant(false), dispRC: .constant(false), dispSpeed: .constant(false), dispElevation: .constant(false))
             .environment(\.managedObjectContext, context)
-
     }
 }

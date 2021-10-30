@@ -20,6 +20,8 @@ struct ContentView: View {
     @State private var selection = 1
     @State private var tripIsActive = false
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.colorScheme) var colorScheme
+    //@EnvironmentObject var colorSettings: ColorSettings
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var notificationManager: Notifications
     @EnvironmentObject var bleManager: BLEManager
@@ -66,6 +68,13 @@ struct ContentView: View {
                 }
             }
         })
+        /*
+        .onChange(of: colorScheme) { _ in
+            if colorScheme == .dark {
+                //self.colorSettings = darkColorSettings
+            }
+        }
+ */
     }
     
     

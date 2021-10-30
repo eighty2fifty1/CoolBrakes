@@ -12,12 +12,14 @@ import Foundation
 struct MultilineChartView: UIViewRepresentable, View {
     //@Binding var trip: Trip
     
-    var tempLF: [ChartDataEntry] = []
-    var tempRF: [ChartDataEntry] = []
-    var tempLR: [ChartDataEntry] = []
-    var tempRR: [ChartDataEntry] = []
-    var tempLC: [ChartDataEntry] = []
-    var tempRC: [ChartDataEntry] = []
+    var tempLF: [ChartDataEntry]?
+    var tempRF: [ChartDataEntry]?
+    var tempLR: [ChartDataEntry]?
+    var tempRR: [ChartDataEntry]?
+    var tempLC: [ChartDataEntry]?
+    var tempRC: [ChartDataEntry]?
+    var elevation: [ChartDataEntry]?
+    var speed: [ChartDataEntry]?
     var tripTime: Date
     
     //var tripStartTime: Date
@@ -57,7 +59,7 @@ struct MultilineChartView: UIViewRepresentable, View {
         //y axis settings
         chart.leftAxis.axisMaximum = 250
         chart.leftAxis.axisMinimum = 0
-        chart.rightAxis.enabled = false
+        chart.rightAxis.axisMinimum = 0
         //chart.leftAxis.enabled = false
         
         chart.data = addData()
@@ -68,27 +70,36 @@ struct MultilineChartView: UIViewRepresentable, View {
         
 
         let data = LineChartData(dataSets: [
-            generateLineChartDataSet(dataSetEntries: tempLF, color: UIColor.green, label: "LF"),
-            generateLineChartDataSet(dataSetEntries: tempRF, color: UIColor.red, label: "RF"),
-            generateLineChartDataSet(dataSetEntries: tempLC, color: UIColor.black, label: "LC"),
-            generateLineChartDataSet(dataSetEntries: tempRC, color: UIColor.orange, label: "RC"),
-            generateLineChartDataSet(dataSetEntries: tempLR, color: UIColor.blue, label: "LR"),
-            generateLineChartDataSet(dataSetEntries: tempRR, color: UIColor.yellow, label: "RR")
-            
+            //temps
+            generateLineChartDataSet(dataSetEntries: tempLF, color: UIColor(Color.lf), label: "LF", dependency: .left),
+            generateLineChartDataSet(dataSetEntries: tempRF, color: UIColor(Color.rf), label: "RF", dependency: .left),
+            generateLineChartDataSet(dataSetEntries: tempLC, color: UIColor(Color.lc), label: "LC", dependency: .left
+            ),
+            generateLineChartDataSet(dataSetEntries: tempRC, color: UIColor(Color.rc), label: "RC", dependency: .left),
+            generateLineChartDataSet(dataSetEntries: tempLR, color: UIColor(Color.lr), label: "LR", dependency: .left),
+            generateLineChartDataSet(dataSetEntries: tempRR, color: UIColor(Color.rr), label: "RR", dependency: .left),
+            //speed
+            generateLineChartDataSet(dataSetEntries: speed, color: UIColor(Color.speed), label: "MPH", dependency: .left),
+            //elevation
+            generateLineChartDataSet(dataSetEntries: elevation, color: UIColor(Color.elevation), label: "Feet", dependency: .right)
         
         ])
         return data
     }
     
     //sets line options, i think
-    func generateLineChartDataSet(dataSetEntries: [ChartDataEntry], color: UIColor, label: String) -> LineChartDataSet{
+    func generateLineChartDataSet(dataSetEntries: [ChartDataEntry]?, color: UIColor, label: String, dependency: YAxis.AxisDependency) -> LineChartDataSet {
+        
         var dataSet = LineChartDataSet()
-        if !dataSetEntries.isEmpty {
-             dataSet = LineChartDataSet(entries: dataSetEntries, label: "")
-        } else
-        {
-            dataSet = LineChartDataSet(entries: [ChartDataEntry(x: 0, y: 0)], label: "")
+        if dataSetEntries == nil {
+            return LineChartDataSet()
+            
         }
+        
+        
+        dataSet = LineChartDataSet(entries: dataSetEntries, label: "")
+        
+        
         dataSet.colors = [color]
         dataSet.mode = .linear
         dataSet.drawCirclesEnabled = false
@@ -99,7 +110,9 @@ struct MultilineChartView: UIViewRepresentable, View {
         dataSet.valueTextColor = color
         dataSet.valueFont = UIFont(name: "Avenir", size: 12)!
         dataSet.label = label
+        dataSet.axisDependency = dependency
         return dataSet
+        
     }
 
     typealias UIViewType = LineChartView

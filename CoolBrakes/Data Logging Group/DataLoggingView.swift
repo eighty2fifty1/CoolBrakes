@@ -39,6 +39,8 @@ struct DataLoggingView: View {
     @State var dispRR = true
     @State var dispLC = true
     @State var dispRC = true
+    @State var dispSpeed = true
+    @State var dispElevation = true
     @State var showTripAlert = false
     
     @Binding var tripIsActive: Bool
@@ -131,7 +133,7 @@ struct DataLoggingView: View {
                     Text("No Trips Available")
                     Spacer()
                 } else {
-                    TripParser(trip: trips[selectedTripIdx], dispLF: $dispLF, dispRF: $dispRF, dispLR: $dispLR, dispRR: $dispRR, dispLC: $dispLC, dispRC: $dispRC)
+                    TripParser(trip: trips[selectedTripIdx], dispLF: $dispLF, dispRF: $dispRF, dispLR: $dispLR, dispRR: $dispRR, dispLC: $dispLC, dispRC: $dispRC, dispSpeed: $dispSpeed, dispElevation: $dispElevation)
                 }
                 HStack{
                     Text("Settings")
@@ -143,8 +145,6 @@ struct DataLoggingView: View {
                             .rotationEffect(.degrees(showSettings ? 90 : 0))
                             .animation(.easeInOut)
                     }
-                    
-                    
                 }
                 if showSettings {
                     HStack {
@@ -153,7 +153,6 @@ struct DataLoggingView: View {
                                 Text("Start Date: \(formatter.string(from: trips[selectedTripIdx].startDate ?? Date()))")
                                     .padding(.top, 32.0)
                                 Text("Trip Name: \(trips[selectedTripIdx].name ?? defaultName)")
-                                //Text("Current Speed: \(((trips[selectedTripIdx].snapArray.last?.speed ?? 1)))")
                                 Text("Current Speed: \(locationManager.speed ?? 0)")
                                 Text("Current Elevation: \(locationManager.altitude ?? 0)")
                             }
@@ -173,7 +172,7 @@ struct DataLoggingView: View {
                         
                         
                         VStack {
-                            Text("Display Axle")
+                            Text("Display Options")
                             Toggle(isOn: $dispLF){
                                 Text("Left Front")
                             }
@@ -205,6 +204,14 @@ struct DataLoggingView: View {
                                     .frame(width: 150.0)
                                 }
                             }
+                            Toggle(isOn: $dispSpeed){
+                                Text("Speed")
+                            }
+                            .frame(width: 150.0)
+                            Toggle(isOn: $dispElevation){
+                                Text("Elevation")
+                            }
+                            .frame(width: 150.0)
                         }
                     }
                 }
@@ -220,17 +227,7 @@ struct DataLoggingView: View {
                     snap.speed = locationManager.speed ?? 0
                     trips[selectedTripIdx].addToSnapshots(snap)
                     
-                    do {
-                        try PersistenceController.shared.save()
-                        print("view context saved.\(snap)")
-                    } catch {
-                        // Replace this implementation with code to handle the error appropriately.
-                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                        let nsError = error as NSError
-                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                    }
-                    
-
+                    PersistenceController.shared.save() //already has error handling
                 }
         })
         }
@@ -277,10 +274,18 @@ struct DataLoggingView_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        DataLoggingView(settings: importedSettings, showSettings: true, tripIsActive: .constant(false))
-            .environment(\.managedObjectContext, context)
-            .environmentObject(bleManager)
-            .environmentObject(locationManager)
+        Group {
+            DataLoggingView(settings: importedSettings, showSettings: true, tripIsActive: .constant(false))
+                .environment(\.managedObjectContext, context)
+                .environmentObject(bleManager)
+                .environmentObject(locationManager)
+            
+            DataLoggingView(settings: importedSettings, showSettings: true, tripIsActive: .constant(false))
+                .environment(\.managedObjectContext, context)
+                .environmentObject(bleManager)
+                .environmentObject(locationManager)
+                .colorScheme(.dark)
+        }
     }
 }
 

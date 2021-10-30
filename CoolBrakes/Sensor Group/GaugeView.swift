@@ -10,16 +10,18 @@ import TTGaugeView
 
 struct GaugeView: View {
     @EnvironmentObject var modelData: ModelData
+    //@EnvironmentObject var colorSettings: ColorSettings
 
     var temp: Double
     var settings: Settings
+    let gaugeSettings = TTGaugeViewSettings(faceColor: Color.gaugeFace, needleColor: Color.needle)
     
     
     //converts temperature values to percents for gauge
     func setGauge(min: Double, max: Double, caution: Double, warning: Double) -> [TTGaugeViewSection] {
-        let section : [TTGaugeViewSection] = [TTGaugeViewSection(color: .green, size: (caution - min) / (max - min)),
-                TTGaugeViewSection(color: .yellow, size: (warning - caution) / (max - min)),
-                TTGaugeViewSection(color: .red, size: (max - warning) / (max - min))]
+        let section : [TTGaugeViewSection] = [TTGaugeViewSection(color: Color.normal, size: (caution - min) / (max - min)),
+                                              TTGaugeViewSection(color: Color.caution, size: (warning - caution) / (max - min)),
+                                              TTGaugeViewSection(color: .warning, size: (max - warning) / (max - min))]
         
         return section
     }
@@ -29,12 +31,12 @@ struct GaugeView: View {
     let gaugeDescription = "Temp"
     
     var body: some View {
-        let valueDescription = "\(Int(temp)) deg F"
+        let valueDescription = "\(Int(temp)) °F"
         //Text(String(settings.maxTemp))
         
             //Text(temp)
             
-        TTGaugeView(angle: angle, sections: setGauge(min: settings.minTemp, max: settings.maxTemp, caution: settings.cautionTemp, warning: settings.warningTemp), value: ((temp - settings.minTemp) / (settings.maxTemp - settings.minTemp)), valueDescription: valueDescription, gaugeDescription: gaugeDescription)
+        TTGaugeView(angle: angle, sections: setGauge(min: settings.minTemp, max: settings.maxTemp, caution: settings.cautionTemp, warning: settings.warningTemp), settings: gaugeSettings, value: ((temp - settings.minTemp) / (settings.maxTemp - settings.minTemp)), valueDescription: valueDescription, gaugeDescription: gaugeDescription)
     }
 }
 

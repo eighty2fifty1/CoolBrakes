@@ -19,4 +19,7 @@ struct Settings: Hashable, Codable {
     var minObservedTemp: [Double]
     var maxObservedTemp: [Double]
     var avgObservedTemp: [Double]
+    
+
+
 }

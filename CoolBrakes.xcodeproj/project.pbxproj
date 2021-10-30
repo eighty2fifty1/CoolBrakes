@@ -24,7 +24,6 @@
 		180A19B826FC35660020A44A /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19B226FC35660020A44A /* ModelData.swift */; };
 		180A19BD26FC35760020A44A /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 180A19BC26FC35750020A44A /* settings.json */; };
 		180A19C526FC35FF0020A44A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19C426FC35FF0020A44A /* ContentView.swift */; };
-		180A19D326FC37240020A44A /* TTGaugeView in Frameworks */ = {isa = PBXBuildFile; productRef = 180A19D226FC37240020A44A /* TTGaugeView */; };
 		180A19E726FC37540020A44A /* DataLoggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A19E426FC37530020A44A /* DataLoggingView.swift */; };
 		180A8DEA2711BB4000C5649E /* TripParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180A8DE92711BB3F00C5649E /* TripParser.swift */; };
 		180E50B6271088EB007A54C6 /* MultilineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E50B5271088EB007A54C6 /* MultilineChartView.swift */; };
@@ -37,6 +36,8 @@
 		1823C965272969AE001BD871 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C961272969AE001BD871 /* Trip+CoreDataClass.swift */; };
 		1823C966272969AE001BD871 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C962272969AE001BD871 /* Trip+CoreDataProperties.swift */; };
 		1823C9722729706E001BD871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1823C9712729706E001BD871 /* Assets.xcassets */; };
+		1823C9BE272BD556001BD871 /* TTGaugeView in Frameworks */ = {isa = PBXBuildFile; productRef = 1823C9BD272BD556001BD871 /* TTGaugeView */; };
+		1823C9C3272C0E90001BD871 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C9C2272C0E90001BD871 /* Color.swift */; };
 		187E23DD2725062F00ED84D8 /* ChartableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E23DC2725062F00ED84D8 /* ChartableData.swift */; };
 		18DA176E271FE74B003D7740 /* SavedTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA176D271FE74B003D7740 /* SavedTripView.swift */; };
 		18F7A19B271D26E00085DD1F /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7A19A271D26E00085DD1F /* DummyView.swift */; };
@@ -99,6 +100,7 @@
 		1823C961272969AE001BD871 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1823C962272969AE001BD871 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1823C9712729706E001BD871 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1823C9C2272C0E90001BD871 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		187E23DC2725062F00ED84D8 /* ChartableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartableData.swift; sourceTree = "<group>"; };
 		18DA176D271FE74B003D7740 /* SavedTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTripView.swift; sourceTree = "<group>"; };
 		18F7A19A271D26E00085DD1F /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
@@ -117,8 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				180A19D326FC37240020A44A /* TTGaugeView in Frameworks */,
 				FAAD5F47BCC978419F82B8E5 /* Pods_CoolBrakes.framework in Frameworks */,
+				1823C9BE272BD556001BD871 /* TTGaugeView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +224,7 @@
 			children = (
 				180A19BC26FC35750020A44A /* settings.json */,
 				180A19A726FC35570020A44A /* SettingsView.swift */,
+				1823C9C2272C0E90001BD871 /* Color.swift */,
 			);
 			path = "Settings Group";
 			sourceTree = "<group>";
@@ -325,7 +328,7 @@
 			);
 			name = CoolBrakes;
 			packageProductDependencies = (
-				180A19D226FC37240020A44A /* TTGaugeView */,
+				1823C9BD272BD556001BD871 /* TTGaugeView */,
 			);
 			productName = CoolBrakes;
 			productReference = 180A196626FC34EC0020A44A /* CoolBrakes.app */;
@@ -402,7 +405,7 @@
 			);
 			mainGroup = 180A195D26FC34EC0020A44A;
 			packageReferences = (
-				180A19D126FC37240020A44A /* XCRemoteSwiftPackageReference "TTGaugeView" */,
+				1823C9BC272BD556001BD871 /* XCRemoteSwiftPackageReference "TTGaugeView" */,
 			);
 			productRefGroup = 180A196726FC34EC0020A44A /* Products */;
 			projectDirPath = "";
@@ -556,6 +559,7 @@
 				18DA176E271FE74B003D7740 /* SavedTripView.swift in Sources */,
 				180A19C526FC35FF0020A44A /* ContentView.swift in Sources */,
 				180A19B726FC35660020A44A /* Settings.swift in Sources */,
+				1823C9C3272C0E90001BD871 /* Color.swift in Sources */,
 				180A8DEA2711BB4000C5649E /* TripParser.swift in Sources */,
 				180A19A826FC35570020A44A /* SettingsView.swift in Sources */,
 				180A197626FC34F20020A44A /* CoolBrakes.xcdatamodeld in Sources */,
@@ -904,9 +908,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		180A19D126FC37240020A44A /* XCRemoteSwiftPackageReference "TTGaugeView" */ = {
+		1823C9BC272BD556001BD871 /* XCRemoteSwiftPackageReference "TTGaugeView" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/honkmaster/TTGaugeView/";
+			repositoryURL = "https://github.com/eighty2fifty1/TTGaugeView";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -915,9 +919,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		180A19D226FC37240020A44A /* TTGaugeView */ = {
+		1823C9BD272BD556001BD871 /* TTGaugeView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 180A19D126FC37240020A44A /* XCRemoteSwiftPackageReference "TTGaugeView" */;
+			package = 1823C9BC272BD556001BD871 /* XCRemoteSwiftPackageReference "TTGaugeView" */;
 			productName = TTGaugeView;
 		};
 /* End XCSwiftPackageProductDependency section */
