@@ -11,7 +11,6 @@ import UserNotifications
 struct SensorView: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var bleManager: BLEManager
-    //@EnvironmentObject var locationManager: LocationManager
     
     var tempArray: [Int] {
         return [bleManager.LF.temp, bleManager.RF.temp, bleManager.LR.temp, bleManager.RR.temp, bleManager.LC.temp, bleManager.RC.temp]
@@ -43,17 +42,17 @@ struct SensorView: View {
                 
                     VStack {
                         NavigationLink(destination: GaugeDetailView(positionIndex: 0, temp: $bleManager.LF.temp, batt: $bleManager.LF.batt)) {
-                            GaugeView(temp: Double(bleManager.LF.temp), settings: modelData.importedSettings)
+                            GaugeView(rawTemp: Double(bleManager.LF.temp), settings: modelData.importedSettings)
                         }
                         
                             if modelData.importedSettings.axles > 2 {
                                 NavigationLink(destination: GaugeDetailView(positionIndex: 4, temp: $bleManager.LC.temp, batt: $bleManager.LC.batt)) {
-                                    GaugeView(temp: Double(bleManager.LC.temp), settings: modelData.importedSettings)
+                                    GaugeView(rawTemp: Double(bleManager.LC.temp), settings: modelData.importedSettings)
                                 }
                             }
                             if modelData.importedSettings.axles > 1 {
                                 NavigationLink(destination: GaugeDetailView(positionIndex: 2, temp: $bleManager.LR.temp, batt: $bleManager.LR.batt)) {
-                                    GaugeView(temp: Double(bleManager.LR.temp), settings: modelData.importedSettings)
+                                    GaugeView(rawTemp: Double(bleManager.LR.temp), settings: modelData.importedSettings)
                                 }
                             }
                     
@@ -65,17 +64,17 @@ struct SensorView: View {
                 
                 VStack {
                     NavigationLink(destination: GaugeDetailView(positionIndex: 0, temp: $bleManager.RF.temp, batt: $bleManager.RF.batt)) {
-                        GaugeView(temp: Double(bleManager.RF.temp), settings: modelData.importedSettings)
+                        GaugeView(rawTemp: Double(bleManager.RF.temp), settings: modelData.importedSettings)
                     }
                     
                         if modelData.importedSettings.axles > 2 {
                             NavigationLink(destination: GaugeDetailView(positionIndex: 4, temp: $bleManager.RC.temp, batt: $bleManager.RC.batt)) {
-                                GaugeView(temp: Double(bleManager.RC.temp), settings: modelData.importedSettings)
+                                GaugeView(rawTemp: Double(bleManager.RC.temp), settings: modelData.importedSettings)
                             }
                         }
                         if modelData.importedSettings.axles > 1 {
                             NavigationLink(destination: GaugeDetailView(positionIndex: 2, temp: $bleManager.RR.temp, batt: $bleManager.RR.batt)) {
-                                GaugeView(temp: Double(bleManager.RR.temp), settings: modelData.importedSettings)
+                                GaugeView(rawTemp: Double(bleManager.RR.temp), settings: modelData.importedSettings)
                             }
                         }
                 

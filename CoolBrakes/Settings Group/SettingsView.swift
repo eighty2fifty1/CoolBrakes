@@ -22,6 +22,7 @@ struct SettingsView: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var bleManager: BLEManager
     @State var sleepAxle: SensorName = .LF
+    //@State var metricUnits = false
     //@State var axles: Int
 
     var body: some View {
@@ -71,6 +72,12 @@ struct SettingsView: View {
                     bleManager.sendStatusMsg(msg: "<0,0,0,1,0>")
 
                 })
+                Spacer()
+                Picker("Units", selection: $modelData.importedSettings.metricUnits) {
+                    Text("Standard").tag(false)
+                    Text("Metric").tag(true)
+                }
+                .pickerStyle(SegmentedPickerStyle())
             }
             //dont use enum, doesnt work
             HStack{

@@ -21,7 +21,7 @@ struct GaugeDetailView: View {
                 Text("AVG: \(modelData.importedSettings.avgObservedTemp[positionIndex])")
             }
             VStack {
-                GaugeView(temp: Double(temp), settings: modelData.importedSettings)
+                GaugeView(rawTemp: Double(temp), settings: modelData.importedSettings)
                 Text("POSIT: \(positName[positionIndex])")
             }
             VStack{
