@@ -10,6 +10,8 @@ import Charts
 
 struct TripParser: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var modelData: ModelData
+
     //var trip = FetchedResults<Trip>.Element
     @ObservedObject var trip: Trip
     
@@ -134,13 +136,19 @@ struct TripParser: View {
     }
     
     
-    //parses array of snapshots into array of ChartDataEntry, by time since trip started
+    //parses array of snapshots into array of ChartDataEntry, by time since trip started.  input is always in Farenheit
     func parseTemp(sortedSnapArray: [Snapshot]) -> [ChartDataEntry] {
         var chartData: [ChartDataEntry] = []
         var xVal: Double = 0
         var yVal: Double = 0
         for n in 0..<sortedSnapArray.count {
-            yVal = Double(sortedSnapArray[n].sensorTemp)
+            
+            //conditionally convets to C
+            if modelData.importedSettings.metricUnits {
+                yVal = (Double(sortedSnapArray[n].sensorTemp) - 32 ) * 5 / 9
+            } else {
+                yVal = Double(sortedSnapArray[n].sensorTemp)
+            }
             xVal = sortedSnapArray[n].timestamp!.timeIntervalSince(tripTime)
             
             chartData.append(ChartDataEntry(x: xVal, y: yVal))
@@ -148,24 +156,38 @@ struct TripParser: View {
         return chartData
     }
     
+    //charts elevation. input is always in feet
     func parseElevation(snapArray: [Snapshot]) -> [ChartDataEntry] {
         var chartData: [ChartDataEntry] = []
         var xVal: Double = 0
         var yVal: Double = 0
         for n in 0..<snapArray.count {
-            yVal = snapArray[n].altitude
+            
+            //conditionally converts to meters
+            if modelData.importedSettings.metricUnits {
+                yVal = snapArray[n].altitude / 3.281
+            } else {
+                yVal = snapArray[n].altitude
+            }
             xVal = snapArray[n].timestamp!.timeIntervalSince(tripTime)
             chartData.append(ChartDataEntry(x: xVal, y: yVal))
         }
         return chartData
     }
     
+    //charts speed. input is always in mph
     func parseSpeed(snapArray: [Snapshot]) -> [ChartDataEntry] {
         var chartData: [ChartDataEntry] = []
         var xVal: Double = 0
         var yVal: Double = 0
         for n in 0..<snapArray.count {
-            yVal = snapArray[n].speed
+            
+            //conditionally converts to kph
+            if modelData.importedSettings.metricUnits {
+                yVal = snapArray[n].speed * 1.609
+            } else {
+                yVal = snapArray[n].speed
+            }
             xVal = snapArray[n].timestamp!.timeIntervalSince(tripTime)
             chartData.append(ChartDataEntry(x: xVal, y: yVal))
         }

@@ -72,17 +72,18 @@ struct DataLoggingView: View {
         return trip
     }
     
-    public var alt: Double {
+    //these convert units only for the text display.  charts will be converted elsewhere
+    public var altConverted: Double {
         if !modelData.importedSettings.metricUnits {
             return { locationManager.altitude ?? 0 }() * 3.281
         }
         return locationManager.altitude ?? 0
     }
-    public var spd: Double {
+    public var spdConverted: Double {
         if !modelData.importedSettings.metricUnits {
             return { locationManager.speed ?? 0 }() * 2.237
         }
-        return locationManager.speed ?? 0
+        return { locationManager.speed ?? 0 }() * 3.6
     }
     
 
@@ -165,8 +166,8 @@ struct DataLoggingView: View {
                                 Text("Start Date: \(formatter.string(from: trips[selectedTripIdx].startDate ?? Date()))")
                                     .padding(.top, 32.0)
                                 Text("Trip Name: \(trips[selectedTripIdx].name ?? defaultName)")
-                                Text("Current Speed: \(spd ?? 0)")
-                                Text("Current Elevation: \(alt ?? 0)")
+                                Text("Current Speed: \(spdConverted )")
+                                Text("Current Elevation: \(altConverted )")
                             }
                             Spacer()
                             
@@ -236,8 +237,8 @@ struct DataLoggingView: View {
                     snap.posit = Int16(bleManager.incomingIntArray[0])
                     snap.sensorTemp = Int16(bleManager.incomingIntArray[1])
                     snap.timestamp = Date()
-                    snap.altitude = locationManager.altitude ?? 0
-                    snap.speed = locationManager.speed ?? 0
+                    snap.altitude = locationManager.altitude ?? 0 * 3.281 // should stay in std units,
+                    snap.speed = locationManager.speed ?? 0 * 2.237    // not be converted
                     trips[selectedTripIdx].addToSnapshots(snap)
                     
                     PersistenceController.shared.save() //already has error handling

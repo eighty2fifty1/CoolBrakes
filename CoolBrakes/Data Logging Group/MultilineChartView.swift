@@ -10,7 +10,8 @@ import Charts
 import Foundation
 
 struct MultilineChartView: UIViewRepresentable, View {
-    //@Binding var trip: Trip
+    @EnvironmentObject var modelData: ModelData
+
     
     var tempLF: [ChartDataEntry]?
     var tempRF: [ChartDataEntry]?
@@ -21,6 +22,18 @@ struct MultilineChartView: UIViewRepresentable, View {
     var elevation: [ChartDataEntry]?
     var speed: [ChartDataEntry]?
     var tripTime: Date
+    var speedLabel: String {
+        if modelData.importedSettings.metricUnits {
+            return "KPH"
+        }
+        return "MPH"
+    }
+    var altLabel: String {
+        if modelData.importedSettings.metricUnits {
+            return "METERS"
+        }
+        return "FEET"
+    }
     
     //var tripStartTime: Date
     //var tripArray: [Snapshot]     //removed for troubleshooting
@@ -84,9 +97,9 @@ struct MultilineChartView: UIViewRepresentable, View {
             generateLineChartDataSet(dataSetEntries: tempLR, color: UIColor(Color.lr), label: "LR", dependency: .left),
             generateLineChartDataSet(dataSetEntries: tempRR, color: UIColor(Color.rr), label: "RR", dependency: .left),
             //speed
-            generateLineChartDataSet(dataSetEntries: speed, color: UIColor(Color.speed), label: "MPH", dependency: .left),
+            generateLineChartDataSet(dataSetEntries: speed, color: UIColor(Color.speed), label: speedLabel, dependency: .left),
             //elevation
-            generateLineChartDataSet(dataSetEntries: elevation, color: UIColor(Color.elevation), label: "Feet", dependency: .right)
+            generateLineChartDataSet(dataSetEntries: elevation, color: UIColor(Color.elevation), label: altLabel, dependency: .right)
         
         ])
         return data
@@ -96,11 +109,12 @@ struct MultilineChartView: UIViewRepresentable, View {
     func generateLineChartDataSet(dataSetEntries: [ChartDataEntry]?, color: UIColor, label: String, dependency: YAxis.AxisDependency) -> LineChartDataSet {
         
         var dataSet = LineChartDataSet()
+        /*
         if dataSetEntries == nil {
             return LineChartDataSet(entries: [ChartDataEntry(x: 1, y: 1)])
             
         }
-        
+        */
         
         dataSet = LineChartDataSet(entries: dataSetEntries, label: "")
         
