@@ -21,6 +21,8 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
     
     @Published var centralManager: CBCentralManager!
     @Published var isSwitchedOn = false
+    @Published var isScanning = false
+    @Published var isConnected = false
     private var bleRepeater: CBPeripheral!
     @Published var dataChar: CBCharacteristic!
     @Published var msgChar: CBCharacteristic!
@@ -52,6 +54,7 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
             isSwitchedOn = true
+            isScanning = false
             startScanning()
         } else {
             isSwitchedOn = false
@@ -60,20 +63,32 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
     
     func startScanning() -> Void {
         centralManager.scanForPeripherals(withServices: [RepeaterUUID.repeaterTempSvcUUID, RepeaterUUID.repeaterMsgSvcUUID])
+        isScanning = true
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         bleRepeater = peripheral
         bleRepeater.delegate = self
         centralManager?.stopScan()
+        isScanning = false
         
         customLog.notice("Found the device: \(self.bleRepeater.name!)")
         centralManager?.connect(bleRepeater!, options: nil)
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        isConnected = true
         bleRepeater.discoverServices([RepeaterUUID.repeaterMsgSvcUUID, RepeaterUUID.repeaterTempSvcUUID])
         
+    }
+    
+    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        isConnected = false
+    }
+    
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        isConnected = false
+        startScanning()
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
