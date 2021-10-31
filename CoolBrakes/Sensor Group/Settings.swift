@@ -9,13 +9,12 @@ import Foundation
 import SwiftUI
 
 struct Settings: Hashable, Codable {
-    
+    //var id: UUID
     var minTemp: Double
     var cautionTemp: Double
     var warningTemp: Double
     var maxTemp: Double
     var axles: Int
-    var units: String
     var minObservedTemp: [Double]
     var maxObservedTemp: [Double]
     var avgObservedTemp: [Double]

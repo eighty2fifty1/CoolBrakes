@@ -28,6 +28,9 @@ struct CoolBrakesApp: App {
         }
         .onChange(of: scenePhase) { _ in
             persistenceController.save()
+            modelData.writeJSON()
+            
+            print("scene phase changed") //just for testing
         }
     }
     

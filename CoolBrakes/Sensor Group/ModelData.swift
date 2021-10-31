@@ -27,28 +27,38 @@ import Combine
  }
  */
 final class ModelData: ObservableObject {
-    @Published var importedSettings: Settings = load("settings.json")
+    @Published var importedSettings: Settings = load("settings")
+    
+    func writeJSON() {
+        print("attempting to save")
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let jsonURL = documentDirectory
+            .appendingPathComponent("settings")
+            .appendingPathExtension("json")
+        do {
+        try JSONEncoder().encode(importedSettings).write(to: jsonURL, options: .atomic)
+        print("saved?")
+        } catch {
+            print("no worky")
+        }
+    }
 }
 
 
 func load<T: Decodable>(_ filename: String) -> T {
-    let data: Data
-    
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
+    guard let readURL = Bundle.main.url(forResource: filename, withExtension: "json")
     else{
         fatalError("Couldn't find \(filename) in main bundle")
     }
     
-    do{
-        data = try Data(contentsOf: file)
-    } catch {
-        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
+    let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    let jsonURL = documentDirectory
+        .appendingPathComponent(filename)
+        .appendingPathExtension("json")
+    
+    if !FileManager.default.fileExists(atPath: jsonURL.path) {
+        try? FileManager.default.copyItem(at: readURL, to: jsonURL)
     }
     
-    do{
-        let decoder = JSONDecoder()
-        return try decoder.decode(T.self, from: data)
-    } catch {
-        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
-    }
+    return try! JSONDecoder().decode(T.self, from: Data(contentsOf: jsonURL))
 }

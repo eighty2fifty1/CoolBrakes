@@ -26,7 +26,6 @@
     100,
     100
   ],
-  "units" : "standard",
   "minTemp" : 50,
   "axles" : 3,
   "warningTemp" : 200

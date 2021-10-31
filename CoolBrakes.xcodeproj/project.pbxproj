@@ -38,7 +38,6 @@
 		1823C9722729706E001BD871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1823C9712729706E001BD871 /* Assets.xcassets */; };
 		1823C9BE272BD556001BD871 /* TTGaugeView in Frameworks */ = {isa = PBXBuildFile; productRef = 1823C9BD272BD556001BD871 /* TTGaugeView */; };
 		1823C9C3272C0E90001BD871 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C9C2272C0E90001BD871 /* Color.swift */; };
-		1823C9D1272EA6AE001BD871 /* ExportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C9D0272EA6AE001BD871 /* ExportManager.swift */; };
 		1823C9D7272EA939001BD871 /* SwiftUIMailView in Frameworks */ = {isa = PBXBuildFile; productRef = 1823C9D6272EA939001BD871 /* SwiftUIMailView */; };
 		1823C9DC272EAF03001BD871 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C9DB272EAF02001BD871 /* ExportView.swift */; };
 		18DA176E271FE74B003D7740 /* SavedTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA176D271FE74B003D7740 /* SavedTripView.swift */; };
@@ -103,7 +102,6 @@
 		1823C962272969AE001BD871 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1823C9712729706E001BD871 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1823C9C2272C0E90001BD871 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		1823C9D0272EA6AE001BD871 /* ExportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportManager.swift; sourceTree = "<group>"; };
 		1823C9DB272EAF02001BD871 /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
 		18DA176D271FE74B003D7740 /* SavedTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTripView.swift; sourceTree = "<group>"; };
 		18F7A19A271D26E00085DD1F /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 				1823C9DB272EAF02001BD871 /* ExportView.swift */,
 				18F7A19A271D26E00085DD1F /* DummyView.swift */,
 				180E50B5271088EB007A54C6 /* MultilineChartView.swift */,
-				1823C9D0272EA6AE001BD871 /* ExportManager.swift */,
 			);
 			path = "Data Logging Group";
 			sourceTree = "<group>";
@@ -580,7 +577,6 @@
 				181388B62728247D009D4142 /* TripEditorView.swift in Sources */,
 				180E50B6271088EB007A54C6 /* MultilineChartView.swift in Sources */,
 				181388C527287A5C009D4142 /* Notifications.swift in Sources */,
-				1823C9D1272EA6AE001BD871 /* ExportManager.swift in Sources */,
 				181388BC27285C6F009D4142 /* SnowflakeGroup.swift in Sources */,
 				18F7A19B271D26E00085DD1F /* DummyView.swift in Sources */,
 				1823C965272969AE001BD871 /* Trip+CoreDataClass.swift in Sources */,
