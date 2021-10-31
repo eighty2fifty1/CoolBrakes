@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIMailView
 
 struct SavedTripView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -21,6 +22,7 @@ struct SavedTripView: View {
 
     @State private var tripName: String = "Unknown Name"
     
+
     var body: some View {
         
         NavigationView {
@@ -46,6 +48,9 @@ struct SavedTripView: View {
                             Image(systemName: "checkmark.circle.fill")
                                 .foregroundColor(.green)
                         }
+                            ExportView(trip: trip)
+                            
+ 
                         }
                     }
                 }
@@ -78,6 +83,8 @@ struct SavedTripView: View {
             let trip = trips[index]
             selectedTripIdx = 0
             viewContext.delete(trip)
+            //viewContext.save()
+            PersistenceController.shared.save()
         }
     }
 }

@@ -72,6 +72,18 @@ struct DataLoggingView: View {
         return trip
     }
     
+    public var alt: Double {
+        if !modelData.importedSettings.metricUnits {
+            return { locationManager.altitude ?? 0 }() * 3.281
+        }
+        return locationManager.altitude ?? 0
+    }
+    public var spd: Double {
+        if !modelData.importedSettings.metricUnits {
+            return { locationManager.speed ?? 0 }() * 2.237
+        }
+        return locationManager.speed ?? 0
+    }
     
 
     var body: some View {
@@ -153,8 +165,8 @@ struct DataLoggingView: View {
                                 Text("Start Date: \(formatter.string(from: trips[selectedTripIdx].startDate ?? Date()))")
                                     .padding(.top, 32.0)
                                 Text("Trip Name: \(trips[selectedTripIdx].name ?? defaultName)")
-                                Text("Current Speed: \(locationManager.speed ?? 0)")
-                                Text("Current Elevation: \(locationManager.altitude ?? 0)")
+                                Text("Current Speed: \(spd ?? 0)")
+                                Text("Current Elevation: \(alt ?? 0)")
                             }
                             Spacer()
                             
@@ -219,6 +231,7 @@ struct DataLoggingView: View {
             .onReceive(self.bleManager.$incomingIntArray, perform: { _ in
                 if tripIsActive {
                     let snap = Snapshot(context: viewContext)
+                    
                     snap.idSnap = UUID()
                     snap.posit = Int16(bleManager.incomingIntArray[0])
                     snap.sensorTemp = Int16(bleManager.incomingIntArray[1])

@@ -48,7 +48,11 @@ struct MultilineChartView: UIViewRepresentable, View {
         chart.xAxis.drawLabelsEnabled = true
         chart.xAxis.drawAxisLineEnabled = false
         chart.xAxis.labelPosition = .bottom
-        chart.setVisibleXRangeMaximum(1800)
+        //schart.setVisibleXRangeMaximum(1800)
+        chart.xAxis.axisMinimum = 0
+        //chart.xAxis.axisMaximum = 100 //adding this fixed the issue but this is not a permanent solution.  needs to be conditional for if no data is getting displayed
+        
+        //wtf, now it works without it??
         
         //chart.xAxis.labelCount = 7
         chart.xAxis.forceLabelsEnabled = true
@@ -57,9 +61,10 @@ struct MultilineChartView: UIViewRepresentable, View {
         chart.xAxis.valueFormatter = CustomChartFormatter(sd: tripTime)
         
         //y axis settings
-        chart.leftAxis.axisMaximum = 250
+        //chart.leftAxis.axisMaximum = 250
         chart.leftAxis.axisMinimum = 0
-        chart.rightAxis.axisMinimum = 0
+        //chart.rightAxis.axisMinimum = 0
+        //chart.rightAxis.axisMaximum = 5000
         //chart.leftAxis.enabled = false
         
         chart.data = addData()
@@ -92,7 +97,7 @@ struct MultilineChartView: UIViewRepresentable, View {
         
         var dataSet = LineChartDataSet()
         if dataSetEntries == nil {
-            return LineChartDataSet()
+            return LineChartDataSet(entries: [ChartDataEntry(x: 1, y: 1)])
             
         }
         

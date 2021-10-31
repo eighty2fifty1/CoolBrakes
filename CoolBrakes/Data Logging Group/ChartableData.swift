@@ -6,7 +6,8 @@
 //
 
 import Foundation
-
+/*
 class ChartableData: ObservableObject {
     @Published var chartData: [Snapshot] = []
 }
+*/

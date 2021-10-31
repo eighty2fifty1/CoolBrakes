@@ -138,7 +138,7 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
         else if characteristic.uuid == RepeaterUUID.repeaterTempCharUUID {
             tempMsg = stringFromData
             incomingStringArray = tempMsg.components(separatedBy: "i")
-            incomingIntArray = incomingStringArray.map{Int($0)!}
+            incomingIntArray = incomingStringArray.map{Int($0)!} //unexpectedly found nil whil unwrapping optional value
             parseIncoming(incoming: self.incomingIntArray)
             //customLog.notice("Temp: \(self.tempMsg)")
             
