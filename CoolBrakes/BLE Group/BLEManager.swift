@@ -23,6 +23,8 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
     @Published var isSwitchedOn = false
     @Published var isScanning = false
     @Published var isConnected = false
+    @Published var didDisconnect = false
+    @Published var bleStatusMessage = "Unknown"
     private var bleRepeater: CBPeripheral!
     @Published var dataChar: CBCharacteristic!
     @Published var msgChar: CBCharacteristic!
@@ -64,6 +66,8 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
     func startScanning() -> Void {
         centralManager.scanForPeripherals(withServices: [RepeaterUUID.repeaterTempSvcUUID, RepeaterUUID.repeaterMsgSvcUUID])
         isScanning = true
+        print("scanning")
+        bleStatusMessage = "Scanning..."
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
@@ -71,29 +75,37 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
         bleRepeater.delegate = self
         centralManager?.stopScan()
         isScanning = false
-        
+        bleStatusMessage = "Found CoolBrakes Device"
         customLog.notice("Found the device: \(self.bleRepeater.name!)")
         centralManager?.connect(bleRepeater!, options: nil)
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         isConnected = true
+        print("connected to \(peripheral)")
+        bleStatusMessage = "Connected"
+        didDisconnect = false
         bleRepeater.discoverServices([RepeaterUUID.repeaterMsgSvcUUID, RepeaterUUID.repeaterTempSvcUUID])
         
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         isConnected = false
+        bleStatusMessage = "Unable to connect"
+        print("unable to connect")
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         isConnected = false
+        didDisconnect = true
+        print("disconnected, attempting to reconnect...")
+        bleStatusMessage = "Disconnected, attempting to reconnect"
         startScanning()
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if ((error) != nil){
-            customLog.error("Error discovering services: \(error!.localizedDescription)")
+            bleStatusMessage = "Error discovering services: \(error!.localizedDescription)"
             return
         }
         guard let services = peripheral.services else {
@@ -153,7 +165,7 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
         else if characteristic.uuid == RepeaterUUID.repeaterTempCharUUID {
             tempMsg = stringFromData
             incomingStringArray = tempMsg.components(separatedBy: "i")
-            incomingIntArray = incomingStringArray.map{Int($0)!} //unexpectedly found nil whil unwrapping optional value
+            incomingIntArray = incomingStringArray.map{(Int($0) ?? 0)} //unexpectedly found nil whil unwrapping optional value
             parseIncoming(incoming: self.incomingIntArray)
             //customLog.notice("Temp: \(self.tempMsg)")
             

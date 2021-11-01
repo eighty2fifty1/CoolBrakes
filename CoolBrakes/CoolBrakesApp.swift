@@ -32,6 +32,12 @@ struct CoolBrakesApp: App {
             
             print("scene phase changed") //just for testing
         }
+        .onChange(of: bleManager.isConnected, perform: { _ in
+            if bleManager.didDisconnect {
+                notificationManager.repeaterDisconnectAlert()
+            }
+        })
+        
     }
     
 }

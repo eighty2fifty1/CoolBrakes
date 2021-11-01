@@ -27,47 +27,65 @@ struct ContentView: View {
     @EnvironmentObject var bleManager: BLEManager
     @EnvironmentObject var locationManager: LocationManager
     
-    var body: some View {
-        TabView (selection: $selection) {
-            SensorView()
-                .tabItem{Label("Home", systemImage: "gauge")
-                }
-                .tag(1)
-                .environmentObject(bleManager)
-            
-            DataLoggingView(settings: modelData.importedSettings, tripIsActive: $tripIsActive)
-                .tabItem { Label("Chart", systemImage: "chart.bar")
-                }
-                .tag(2)
-                .environmentObject(bleManager)
-             
-/*      //for debugging
-            DummyView()
-                .tabItem { Label("Chart", systemImage: "chart.bar")
-                }
-                .tag(2)
-           */
-            SettingsView()
-                .tabItem { Label("Settings", systemImage: "gearshape")
-                }
-                .tag(3)
-                .environmentObject(bleManager)
+    private var statusColor: Color {
+        if bleManager.isConnected {
+            return .green
+        } else if bleManager.isScanning {
+            return .yellow
+        } else {
+            return .red
         }
-        //sends local notifications when conditions are met
-        .onReceive(self.bleManager.$incomingIntArray, perform: { _ in
-            if !self.bleManager.incomingIntArray.isEmpty{
+    }
+    
+    var body: some View {
+        VStack {
+            Text("Bluetooth Status: \(bleManager.bleStatusMessage)")
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+                .background(statusColor)
                 
-                //overtemp alert when temp goes over caution
-                if self.bleManager.incomingIntArray[1] > Int(modelData.importedSettings.cautionTemp) {
-                    notificationManager.overtempAlert(positIndex: self.bleManager.incomingIntArray[0])
-                }
+            TabView (selection: $selection) {
+                SensorView()
+                    .tabItem{Label("Home", systemImage: "gauge")
+                    }
+                    .tag(1)
+                    .environmentObject(bleManager)
                 
-                //low battery alert when battery drops below 20%
-                if self.bleManager.incomingIntArray[2] < 20 {
-                    notificationManager.lowBatteryAlert(positIndex: self.bleManager.incomingIntArray[0])
-                }
+                DataLoggingView(settings: modelData.importedSettings, tripIsActive: $tripIsActive)
+                    .tabItem { Label("Chart", systemImage: "chart.bar")
+                    }
+                    .tag(2)
+                    .environmentObject(bleManager)
+                 
+    /*      //for debugging
+                DummyView()
+                    .tabItem { Label("Chart", systemImage: "chart.bar")
+                    }
+                    .tag(2)
+               */
+                SettingsView()
+                    .tabItem { Label("Settings", systemImage: "gearshape")
+                    }
+                    .tag(3)
+                    .environmentObject(bleManager)
             }
+            //sends local notifications when conditions are met
+            .onReceive(self.bleManager.$incomingIntArray, perform: { _ in
+                if !self.bleManager.incomingIntArray.isEmpty{
+                    
+                    //overtemp alert when temp goes over caution
+                    if self.bleManager.incomingIntArray[1] > Int(modelData.importedSettings.alertTemp) {
+                        notificationManager.overtempAlert(positIndex: self.bleManager.incomingIntArray[0])
+                    }
+                    
+                    //low battery alert when battery drops below 20%
+                    if self.bleManager.incomingIntArray[2] < 20 {
+                        notificationManager.lowBatteryAlert(positIndex: self.bleManager.incomingIntArray[0])
+                    }
+                }
         })
+
+        }
         /*
         .onChange(of: colorScheme) { _ in
             if colorScheme == .dark {
@@ -101,7 +119,13 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(ModelData())
             .environmentObject(bleManager)
             .environmentObject(Notifications())
-            
+        
+        ContentView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .environmentObject(ModelData())
+            .environmentObject(bleManager)
+            .environmentObject(Notifications())
+            .colorScheme(.dark)
     }
 }
 

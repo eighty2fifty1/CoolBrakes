@@ -33,7 +33,7 @@ class Notifications: ObservableObject {
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
         
-        print("overtemp alert sent")
+        print("overtemp alert sent: \(position[positIndex])")
     }
     
     //low battery
@@ -53,6 +53,32 @@ class Notifications: ObservableObject {
     func sensorDisconnectAlert(positIndex: Int) {
         let content = UNMutableNotificationContent()
         content.title = "Sensor Disconnected: \(position[positIndex])"
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+        
+        print("disconnect alert sent")
+    }
+    
+    func repeaterConnectAlert() {
+        let content = UNMutableNotificationContent()
+        content.title = "CoolBrakes is connected"
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+        
+        print("connect alert sent")
+    }
+    
+    //repeater disconnect
+    func repeaterDisconnectAlert() {
+        let content = UNMutableNotificationContent()
+        content.title = "CoolBrakes Disconnected"
+        content.body = "Attempting to reconnect.  Ensure the device is powered on and in range"
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)

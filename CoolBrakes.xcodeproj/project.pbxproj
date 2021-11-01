@@ -40,6 +40,10 @@
 		1823C9C3272C0E90001BD871 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C9C2272C0E90001BD871 /* Color.swift */; };
 		1823C9D7272EA939001BD871 /* SwiftUIMailView in Frameworks */ = {isa = PBXBuildFile; productRef = 1823C9D6272EA939001BD871 /* SwiftUIMailView */; };
 		1823C9DC272EAF03001BD871 /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C9DB272EAF02001BD871 /* ExportView.swift */; };
+		1823C9E7272FC24E001BD871 /* BLEUtilitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C9E6272FC24E001BD871 /* BLEUtilitiesView.swift */; };
+		1823C9EC272FC326001BD871 /* DisplaySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C9EB272FC325001BD871 /* DisplaySettingsView.swift */; };
+		18B6BB29272FE60900F23F36 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B6BB28272FE60900F23F36 /* ButtonStyles.swift */; };
+		18B6BB392730125400F23F36 /* EntryFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B6BB382730125300F23F36 /* EntryFieldView.swift */; };
 		18DA176E271FE74B003D7740 /* SavedTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA176D271FE74B003D7740 /* SavedTripView.swift */; };
 		18F7A19B271D26E00085DD1F /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7A19A271D26E00085DD1F /* DummyView.swift */; };
 		232FD075B0D13DB2E953370E /* Pods_CoolBrakesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDEE9C3D13A85E2255BB97D /* Pods_CoolBrakesTests.framework */; };
@@ -103,6 +107,10 @@
 		1823C9712729706E001BD871 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1823C9C2272C0E90001BD871 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1823C9DB272EAF02001BD871 /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
+		1823C9E6272FC24E001BD871 /* BLEUtilitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEUtilitiesView.swift; sourceTree = "<group>"; };
+		1823C9EB272FC325001BD871 /* DisplaySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySettingsView.swift; sourceTree = "<group>"; };
+		18B6BB28272FE60900F23F36 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		18B6BB382730125300F23F36 /* EntryFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryFieldView.swift; sourceTree = "<group>"; };
 		18DA176D271FE74B003D7740 /* SavedTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTripView.swift; sourceTree = "<group>"; };
 		18F7A19A271D26E00085DD1F /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
 		19BBD428B9E265D7F4204F6E /* Pods-CoolBrakes-CoolBrakesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolBrakes-CoolBrakesUITests.release.xcconfig"; path = "Target Support Files/Pods-CoolBrakes-CoolBrakesUITests/Pods-CoolBrakes-CoolBrakesUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -172,7 +180,7 @@
 			children = (
 				181388CC27292531009D4142 /* Location Group */,
 				181388C327287A40009D4142 /* Notification Group */,
-				181388BA27285C4B009D4142 /* Icon Group */,
+				181388BA27285C4B009D4142 /* Icon and Style Group */,
 				180A19E226FC37520020A44A /* Data Logging Group */,
 				180A19AC26FC35660020A44A /* Sensor Group */,
 				180A19A626FC35570020A44A /* Settings Group */,
@@ -225,7 +233,12 @@
 			isa = PBXGroup;
 			children = (
 				180A19BC26FC35750020A44A /* settings.json */,
+				180A19B126FC35660020A44A /* Settings.swift */,
+				180A19B226FC35660020A44A /* ModelData.swift */,
 				180A19A726FC35570020A44A /* SettingsView.swift */,
+				1823C9EB272FC325001BD871 /* DisplaySettingsView.swift */,
+				18B6BB382730125300F23F36 /* EntryFieldView.swift */,
+				1823C9E6272FC24E001BD871 /* BLEUtilitiesView.swift */,
 				1823C9C2272C0E90001BD871 /* Color.swift */,
 			);
 			path = "Settings Group";
@@ -238,8 +251,6 @@
 				180A19AE26FC35660020A44A /* SensorView.swift */,
 				180A19AF26FC35660020A44A /* GaugeView.swift */,
 				180A19B026FC35660020A44A /* GaugeDetailView.swift */,
-				180A19B126FC35660020A44A /* Settings.swift */,
-				180A19B226FC35660020A44A /* ModelData.swift */,
 			);
 			path = "Sensor Group";
 			sourceTree = "<group>";
@@ -264,12 +275,13 @@
 			path = "Data Logging Group";
 			sourceTree = "<group>";
 		};
-		181388BA27285C4B009D4142 /* Icon Group */ = {
+		181388BA27285C4B009D4142 /* Icon and Style Group */ = {
 			isa = PBXGroup;
 			children = (
 				181388BB27285C6F009D4142 /* SnowflakeGroup.swift */,
+				18B6BB28272FE60900F23F36 /* ButtonStyles.swift */,
 			);
-			path = "Icon Group";
+			path = "Icon and Style Group";
 			sourceTree = "<group>";
 		};
 		181388C327287A40009D4142 /* Notification Group */ = {
@@ -557,6 +569,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B6BB392730125400F23F36 /* EntryFieldView.swift in Sources */,
+				1823C9E7272FC24E001BD871 /* BLEUtilitiesView.swift in Sources */,
 				180A19B426FC35660020A44A /* SensorView.swift in Sources */,
 				180A19E726FC37540020A44A /* DataLoggingView.swift in Sources */,
 				180A19A126FC35440020A44A /* RepeaterUUID.swift in Sources */,
@@ -572,7 +586,9 @@
 				180A197326FC34F20020A44A /* Persistence.swift in Sources */,
 				1823C964272969AE001BD871 /* Snapshot+CoreDataProperties.swift in Sources */,
 				180A19A026FC35440020A44A /* BLEManager.swift in Sources */,
+				1823C9EC272FC326001BD871 /* DisplaySettingsView.swift in Sources */,
 				180A19B626FC35660020A44A /* GaugeDetailView.swift in Sources */,
+				18B6BB29272FE60900F23F36 /* ButtonStyles.swift in Sources */,
 				180A19B526FC35660020A44A /* GaugeView.swift in Sources */,
 				181388B62728247D009D4142 /* TripEditorView.swift in Sources */,
 				180E50B6271088EB007A54C6 /* MultilineChartView.swift in Sources */,

@@ -1,5 +1,4 @@
 {
-  "maxTemp" : 250,
   "avgObservedTemp" : [
     0,
     0,
@@ -8,6 +7,7 @@
     0,
     0
   ],
+  "alertTemp" : 74,
   "cautionTemp" : 175,
   "maxObservedTemp" : [
     0,
@@ -26,7 +26,8 @@
     100,
     100
   ],
-  "minTemp" : 50,
   "axles" : 3,
-  "warningTemp" : 200
+  "minTemp" : 50,
+  "warningTemp" : 200,
+  "maxTemp" : 250
 }
