@@ -17,10 +17,13 @@ struct RepeaterUUID {
     
     static let str_repeaterMsgCharUUID = "00002B25-0000-1000-8000-00805f9b34fb"
     
+    static let str_configDescriptor = "00002902-0000-1000-8000-00805f9b34fb"
+    
     static let repeaterTempSvcUUID = CBUUID(string: str_repeaterServiceUUID)
     static let repeaterTempCharUUID = CBUUID(string: str_repeaterCharUUID)
     static let repeaterMsgSvcUUID = CBUUID(string: str_repeaterMsgSvcUUID)
     static let repeaterMsgCharUUID = CBUUID(string: str_repeaterMsgCharUUID)
+    static let configDescriptorUUID = CBUUID(string: str_configDescriptor)
     
     //from android app.  not sure if needed yet
     // public static final UUID CONFIG_DESCRIPTOR = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb")

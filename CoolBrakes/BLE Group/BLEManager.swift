@@ -128,6 +128,7 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
         for characteristic in characteristics {
             if characteristic.uuid.isEqual(RepeaterUUID.repeaterMsgCharUUID) {
                 msgChar = characteristic
+                
                 peripheral.setNotifyValue(true, for: msgChar)
                 
             }
@@ -225,7 +226,14 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
     
     func sendStatusMsg(msg: String) {
         let data = Data(msg.utf8)
-        bleRepeater.writeValue(data, for: msgChar, type: .withoutResponse)
+        if bleRepeater.canSendWriteWithoutResponse {
+            print("can send without response")
+        }
+        else {print("cant send message without response idiot") }
+        
+        //print(msgChar.descriptors)
+        
+        bleRepeater.writeValue(data, for: msgChar, type: .withResponse)
         print(msg)
         
         //status msg key
