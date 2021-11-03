@@ -30,6 +30,7 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
     @Published var msgChar: CBCharacteristic!
     @Published var tempMsg: String!
     @Published var statusMsg: String!
+    //@Published var repeaterRSSI: String!
     
     @Published var LF = SensorData()
     @Published var RF = SensorData()
@@ -103,6 +104,12 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
         startScanning()
     }
     
+    /*
+    func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
+        repeaterRSSI = RSSI.stringValue
+    }
+ */
+    
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if ((error) != nil){
             bleStatusMessage = "Error discovering services: \(error!.localizedDescription)"
@@ -159,7 +166,7 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
             incomingStringArray = statusMsg.components(separatedBy: "i")
             incomingStatusArray = incomingStringArray.map{Int($0)!}
             parseStatusMsgData(incoming: self.incomingStatusArray)
-            //customLog.notice("Status: \(self.statusMsg)")
+            customLog.notice("Status: \(self.statusMsg)")
             
             
         }
@@ -168,7 +175,7 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
             incomingStringArray = tempMsg.components(separatedBy: "i")
             incomingIntArray = incomingStringArray.map{(Int($0) ?? 0)} //unexpectedly found nil whil unwrapping optional value
             parseIncoming(incoming: self.incomingIntArray)
-            //customLog.notice("Temp: \(self.tempMsg)")
+            customLog.notice("Temp: \(self.tempMsg)")
             
             //         incoming key
             //incoming[0]: position 1-6 -> LF, RF, LR, RR, LC, RC

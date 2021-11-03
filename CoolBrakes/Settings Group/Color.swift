@@ -23,4 +23,6 @@ extension Color {
     static let speed = Color("Speed")
     static let truck = Color("Truck")
     static let warning = Color("Warning")
+    static let buttonDisabled = Color("ButtonDisabled")
+    static let buttonEnabled = Color("ButtonEnabled")
 }

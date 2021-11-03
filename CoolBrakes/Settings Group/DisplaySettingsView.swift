@@ -10,6 +10,11 @@ import SwiftUI
 struct DisplaySettingsView: View {
     @EnvironmentObject var modelData: ModelData
     @EnvironmentObject var bleManager: BLEManager
+    @State var alertTemp: Double?
+    @State var minTemp: Double?
+    @State var cautionTemp: Double?
+    @State var warningTemp: Double?
+    @State var maxTemp: Double?
     
     private var numFormatter: NumberFormatter {
         let form = NumberFormatter()
@@ -19,9 +24,8 @@ struct DisplaySettingsView: View {
     }
     
     var body: some View {
-        VStack {
+        Form {
             Text("Display Settings")
-            Spacer()
             HStack{
                 Text("Axles")
                 Picker("Axles", selection: $modelData.importedSettings.axles) {
@@ -36,41 +40,56 @@ struct DisplaySettingsView: View {
             }
             .padding()
             
-            Spacer()
-            Text("Debug val: \(modelData.importedSettings.alertTemp)") //keeping for debugging
-            Group{
-                EntryFieldView(label: "Alert Temp",field: $modelData.importedSettings.alertTemp, placeHolder: modelData.importedSettings.alertTemp, prompt: modelData.importedSettings.alertPrompt)
+            Text("Debug val: \(alertTemp ?? 46)") //keeping for debugging
+            Section{
+                Section {
+                    EntryFieldView(label: "Alert Temp",field: $alertTemp, placeHolder: modelData.importedSettings.alertTemp, prompt: alertPrompt)
+                }
                 
-                EntryFieldView(label: "Min Temp", field: $modelData.importedSettings.minTemp, placeHolder: modelData.importedSettings.minTemp, prompt: modelData.importedSettings.minPrompt)
+                Section {
+                    EntryFieldView(label: "Min Temp", field: $minTemp, placeHolder: modelData.importedSettings.minTemp, prompt: minPrompt)
                 
-                EntryFieldView(label: "Caution Temp", field: $modelData.importedSettings.cautionTemp, placeHolder: modelData.importedSettings.cautionTemp, prompt: modelData.importedSettings.cautionPrompt)
+                    EntryFieldView(label: "Caution Temp", field: $cautionTemp, placeHolder: modelData.importedSettings.cautionTemp, prompt: cautionPrompt)
                 
-                EntryFieldView(label: "Warning Temp", field: $modelData.importedSettings.warningTemp, placeHolder: modelData.importedSettings.warningTemp, prompt: modelData.importedSettings.warningPrompt)
+                    EntryFieldView(label: "Warning Temp", field: $warningTemp, placeHolder: modelData.importedSettings.warningTemp, prompt: warningPrompt)
                 
-                EntryFieldView(label: "Max Temp", field: $modelData.importedSettings.maxTemp, placeHolder: modelData.importedSettings.maxTemp, prompt: modelData.importedSettings.maxPrompt)
+                    EntryFieldView(label: "Max Temp", field: $maxTemp, placeHolder: modelData.importedSettings.maxTemp, prompt: maxPrompt)
+                }
+                Button("Save Changes", action: {
+                    saveGaugeChanges()
+                })
+                .buttonStyle(StandardButton())
+                .disabled(!isInputValidated())
+                
             }
-            Spacer()
                 Picker("Units", selection: $modelData.importedSettings.metricUnits) {
                     Text("Standard").tag(false)
                     Text("Metric").tag(true)
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
-            Spacer()
+        }
+    }
+    
+    func saveGaugeChanges() {
+        if isInputValidated() {
+            modelData.importedSettings.alertTemp = alertTemp! //?? modelData.importedSettings.alertTemp
+            modelData.importedSettings.minTemp = minTemp! // ?? modelData.importedSettings.minTemp
+            modelData.importedSettings.cautionTemp = cautionTemp! // ?? modelData.importedSettings.cautionTemp
+            modelData.importedSettings.warningTemp = warningTemp! // ?? modelData.importedSettings.warningTemp
+            modelData.importedSettings.maxTemp = maxTemp! // ?? modelData.importedSettings.maxTemp
         }
     }
 }
 
-extension UIApplication {
-    func endEditing () {
-        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
+
 
 struct DisplaySettingsView_Previews: PreviewProvider {
+    static var modelData = ModelData()
+    
     static var previews: some View {
-        DisplaySettingsView()
-            .environmentObject(ModelData())
+        DisplaySettingsView(alertTemp: modelData.importedSettings.alertTemp, minTemp: modelData.importedSettings.minTemp, cautionTemp: modelData.importedSettings.cautionTemp, warningTemp: modelData.importedSettings.warningTemp, maxTemp: modelData.importedSettings.maxTemp)
+            .environmentObject(modelData)
             .environmentObject(BLEManager())
 
     }

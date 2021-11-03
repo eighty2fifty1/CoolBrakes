@@ -26,6 +26,26 @@ struct ContentView: View {
     @EnvironmentObject var notificationManager: Notifications
     @EnvironmentObject var bleManager: BLEManager
     @EnvironmentObject var locationManager: LocationManager
+    /*
+    var avgArray: [[Double]] {
+        var array: [[Double]]
+        for n in 0...5{
+            array[n][0] = modelData.importedSettings.avgObservedTemp[n]
+        }
+        return array
+    }
+ */
+    
+    lazy var avgArray: [[Double]] = [[modelData.importedSettings.avgObservedTemp[0]],
+                                     [modelData.importedSettings.avgObservedTemp[1]],
+                                     [modelData.importedSettings.avgObservedTemp[2]],
+                                     [modelData.importedSettings.avgObservedTemp[3]],
+                                     [modelData.importedSettings.avgObservedTemp[4]],
+                                     [modelData.importedSettings.avgObservedTemp[5]]
+                                    ]
+    var sumArray: [Double] = []
+
+
     
     private var statusColor: Color {
         if bleManager.isConnected {
@@ -43,6 +63,7 @@ struct ContentView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
                 .background(statusColor)
+            //Text("Signal Strength: \(bleManager.repeaterRSSI ?? "Unknown")")
                 
             TabView (selection: $selection) {
                 SensorView()
@@ -73,6 +94,12 @@ struct ContentView: View {
             .onReceive(self.bleManager.$incomingIntArray, perform: { _ in
                 if !self.bleManager.incomingIntArray.isEmpty{
                     
+                    compareMaxMin(posit: bleManager.incomingIntArray[0], temp: bleManager.incomingIntArray[1])
+                    
+                    //avrage function
+                    /*
+                    average(posit: bleManager.incomingIntArray[0], temp: bleManager.incomingIntArray[1])
+                    */
                     //overtemp alert when temp goes over caution
                     if self.bleManager.incomingIntArray[1] > Int(modelData.importedSettings.alertTemp) {
                         notificationManager.overtempAlert(positIndex: self.bleManager.incomingIntArray[0])
@@ -105,7 +132,32 @@ struct ContentView: View {
         }
     }
 }
+extension ContentView {
 
+    func compareMaxMin(posit: Int, temp: Int) {
+        if posit > 0 {
+            let ind = posit - 1
+            if modelData.importedSettings.maxObservedTemp[ind] < Double(temp) {
+                    modelData.importedSettings.maxObservedTemp[ind] = Double(temp)
+            }
+            
+            if modelData.importedSettings.minObservedTemp[ind] > Double(temp) {
+                    modelData.importedSettings.minObservedTemp[ind] = Double(temp)
+            }
+        }
+    }
+    /*
+    mutating func average(posit: Int, temp: Int) {
+        //var avgArray: [Double] = []
+        avgArray[3].average()
+        avgArray[posit - 1].append(Double(temp))
+        sumArray[posit - 1] = avgArray[posit - 1].reduce(0, +)
+        modelData.importedSettings.avgObservedTemp[posit - 1] = sumArray[posit - 1] / Double(avgArray[posit - 1].count)
+        print("average: \(modelData.importedSettings.avgObservedTemp[posit - 1])")
+        
+    }
+ */
+}
 
 
 struct ContentView_Previews: PreviewProvider {

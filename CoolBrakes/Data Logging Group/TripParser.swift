@@ -24,6 +24,7 @@ struct TripParser: View {
     @Binding var dispSpeed: Bool
     @Binding var dispElevation: Bool
     
+    
     public var tripTime: Date {
         return trip.startDate ?? Date() //should protect from nil value
     }

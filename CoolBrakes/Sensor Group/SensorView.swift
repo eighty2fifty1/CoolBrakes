@@ -63,17 +63,17 @@ struct SensorView: View {
                         .scaledToFit()
                 
                 VStack {
-                    NavigationLink(destination: GaugeDetailView(positionIndex: 0, temp: $bleManager.RF.temp, batt: $bleManager.RF.batt)) {
+                    NavigationLink(destination: GaugeDetailView(positionIndex: 1, temp: $bleManager.RF.temp, batt: $bleManager.RF.batt)) {
                         GaugeView(rawTemp: Double(bleManager.RF.temp), settings: modelData.importedSettings)
                     }
                     
                         if modelData.importedSettings.axles > 2 {
-                            NavigationLink(destination: GaugeDetailView(positionIndex: 4, temp: $bleManager.RC.temp, batt: $bleManager.RC.batt)) {
+                            NavigationLink(destination: GaugeDetailView(positionIndex: 5, temp: $bleManager.RC.temp, batt: $bleManager.RC.batt)) {
                                 GaugeView(rawTemp: Double(bleManager.RC.temp), settings: modelData.importedSettings)
                             }
                         }
                         if modelData.importedSettings.axles > 1 {
-                            NavigationLink(destination: GaugeDetailView(positionIndex: 2, temp: $bleManager.RR.temp, batt: $bleManager.RR.batt)) {
+                            NavigationLink(destination: GaugeDetailView(positionIndex: 3, temp: $bleManager.RR.temp, batt: $bleManager.RR.batt)) {
                                 GaugeView(rawTemp: Double(bleManager.RR.temp), settings: modelData.importedSettings)
                             }
                         }
@@ -99,6 +99,7 @@ struct SensorView: View {
                 
                 Spacer()
             }
+
         }
     }
 

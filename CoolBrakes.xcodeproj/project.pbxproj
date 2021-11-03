@@ -31,6 +31,8 @@
 		181388BC27285C6F009D4142 /* SnowflakeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181388BB27285C6F009D4142 /* SnowflakeGroup.swift */; };
 		181388C527287A5C009D4142 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181388C427287A5C009D4142 /* Notifications.swift */; };
 		181388CE2729254A009D4142 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181388CD2729254A009D4142 /* LocationManager.swift */; };
+		181BEA27273065340008374C /* ArrayAverageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BEA26273065340008374C /* ArrayAverageExtension.swift */; };
+		181BEA2F2732BF4E0008374C /* DSVExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BEA2E2732BF4D0008374C /* DSVExtension.swift */; };
 		1823C963272969AE001BD871 /* Snapshot+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C95F272969AD001BD871 /* Snapshot+CoreDataClass.swift */; };
 		1823C964272969AE001BD871 /* Snapshot+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C960272969AE001BD871 /* Snapshot+CoreDataProperties.swift */; };
 		1823C965272969AE001BD871 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C961272969AE001BD871 /* Trip+CoreDataClass.swift */; };
@@ -100,6 +102,8 @@
 		181388BB27285C6F009D4142 /* SnowflakeGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowflakeGroup.swift; sourceTree = "<group>"; };
 		181388C427287A5C009D4142 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		181388CD2729254A009D4142 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		181BEA26273065340008374C /* ArrayAverageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayAverageExtension.swift; sourceTree = "<group>"; };
+		181BEA2E2732BF4D0008374C /* DSVExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSVExtension.swift; sourceTree = "<group>"; };
 		1823C95F272969AD001BD871 /* Snapshot+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snapshot+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1823C960272969AE001BD871 /* Snapshot+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snapshot+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1823C961272969AE001BD871 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 				180A19B226FC35660020A44A /* ModelData.swift */,
 				180A19A726FC35570020A44A /* SettingsView.swift */,
 				1823C9EB272FC325001BD871 /* DisplaySettingsView.swift */,
+				181BEA2E2732BF4D0008374C /* DSVExtension.swift */,
 				18B6BB382730125300F23F36 /* EntryFieldView.swift */,
 				1823C9E6272FC24E001BD871 /* BLEUtilitiesView.swift */,
 				1823C9C2272C0E90001BD871 /* Color.swift */,
@@ -266,6 +271,7 @@
 				181388B52728247D009D4142 /* TripEditorView.swift */,
 				180A19E426FC37530020A44A /* DataLoggingView.swift */,
 				180A8DE92711BB3F00C5649E /* TripParser.swift */,
+				181BEA26273065340008374C /* ArrayAverageExtension.swift */,
 				180A197426FC34F20020A44A /* CoolBrakes.xcdatamodeld */,
 				180A197226FC34F20020A44A /* Persistence.swift */,
 				1823C9DB272EAF02001BD871 /* ExportView.swift */,
@@ -582,6 +588,7 @@
 				180A19A826FC35570020A44A /* SettingsView.swift in Sources */,
 				180A197626FC34F20020A44A /* CoolBrakes.xcdatamodeld in Sources */,
 				1823C9DC272EAF03001BD871 /* ExportView.swift in Sources */,
+				181BEA2F2732BF4E0008374C /* DSVExtension.swift in Sources */,
 				1823C966272969AE001BD871 /* Trip+CoreDataProperties.swift in Sources */,
 				180A197326FC34F20020A44A /* Persistence.swift in Sources */,
 				1823C964272969AE001BD871 /* Snapshot+CoreDataProperties.swift in Sources */,
@@ -590,6 +597,7 @@
 				180A19B626FC35660020A44A /* GaugeDetailView.swift in Sources */,
 				18B6BB29272FE60900F23F36 /* ButtonStyles.swift in Sources */,
 				180A19B526FC35660020A44A /* GaugeView.swift in Sources */,
+				181BEA27273065340008374C /* ArrayAverageExtension.swift in Sources */,
 				181388B62728247D009D4142 /* TripEditorView.swift in Sources */,
 				180E50B6271088EB007A54C6 /* MultilineChartView.swift in Sources */,
 				181388C527287A5C009D4142 /* Notifications.swift in Sources */,
