@@ -9,14 +9,12 @@ import SwiftUI
 import SwiftUIMailView
 
 struct ExportView: View {
-    //@State private var mailData = ComposeMailData(subject: "CoolBrakes Trip Data", recipients: ["huskernavy70@gmail.com"], message: "Attached is your data", attachments: [AttachmentData(data: "some text".data(using: .utf8)!, mimeType: "text/plain", fileName: "file.txt")])
-    
     @State private var showMailView = false
     
     private var mailData: ComposeMailData {
         let subject = "CoolBrakes \(trip.name ?? "Trip") Data"
         let recipients = [""]
-        let message = "Here is your trip data from \(trip.name ?? "Trip").  \nTrip Date: \(trip.formattedStartDate ) \n\nThank you for using CoolBrakes!"
+        let message = "Here is your trip data from \(trip.name ?? "Unknown Trip").  \nTrip Date: \(trip.formattedStartDate ) \nTrip Notes: \(trip.tripNotes ?? "")\n\nThank you for using CoolBrakes!"
         let attachments = AttachmentData(data: generateCSV(withManagedObjects: trip).data(using: .utf8)!, mimeType: "text/csv", fileName: trip.name!)
         
         return ComposeMailData(subject: subject, recipients: recipients, message: message, attachments: [attachments])
@@ -24,14 +22,12 @@ struct ExportView: View {
     
     var trip: Trip
     
-    
     var body: some View {
         Button(action: {
             showMailView.toggle()
         }) {
             Image(systemName: "square.and.arrow.up")
         }
-        
         .disabled(!MailView.canSendMail)
         .sheet(isPresented: $showMailView) {
             MailView(data: .constant(mailData)) { result in
@@ -48,19 +44,6 @@ struct ExportView: View {
         }
         
         return CSVString
-        /*
-        let fileManager = FileManager.default
-        let directory = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let path = directory.appendingPathComponent("\(String(describing: arrManagedObjects.name))-\(arrManagedObjects.formattedStartDate)").appendingPathExtension("csv")
-        if !fileManager.fileExists(atPath: path.path) {
-            fileManager.createFile(atPath: path.path, contents: nil, attributes: nil)
-        }
-        do {
-            try CSVString.write(to: path, atomically: true, encoding: .utf8)
-        } catch let error {
-            print("Error creating CSV \(error.localizedDescription)")
-        }
- */
     }
 }
 

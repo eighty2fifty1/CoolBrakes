@@ -20,6 +20,7 @@ extension Trip {
     @NSManaged public var name: String?
     @NSManaged public var startDate: Date?
     @NSManaged public var snapshots: NSOrderedSet?
+    @NSManaged public var tripNotes: String?
 
     public var snapArray: [Snapshot] {
         return snapshots?.array as? [Snapshot] ?? []

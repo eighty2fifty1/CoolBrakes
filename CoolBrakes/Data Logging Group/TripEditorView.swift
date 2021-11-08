@@ -41,7 +41,7 @@ struct TripEditorView: View {
             ActionSheet(title: Text("Save Changes?"), buttons: [
                             .default(Text("Save"), action: {
                                 trips[selectedTripIdx].name = tripName
-                                //trips[selectedTripIdx].tripNotes = tripNotes
+                                trips[selectedTripIdx].tripNotes = tripNotes
                                 PersistenceController.shared.save()
                                 showingAlert = false
                             }),
