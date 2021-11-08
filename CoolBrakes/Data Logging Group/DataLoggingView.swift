@@ -176,6 +176,10 @@ struct DataLoggingView: View {
                                     Image(systemName: "map.fill")
                                     Text("Saved Trips")
                                 }
+                            NavigationLink(
+                                destination: EmptyView()) {
+                                EmptyView()
+                            }
  
                             .padding(32.0)
                             
@@ -244,6 +248,10 @@ struct DataLoggingView: View {
                     PersistenceController.shared.save() //already has error handling
                 }
         })
+            NavigationLink(
+                destination: EmptyView()) {
+                EmptyView()
+            }
         }
         //.navigationBarHidden(true)
     }

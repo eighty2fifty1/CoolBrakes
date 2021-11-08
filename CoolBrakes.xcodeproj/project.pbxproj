@@ -33,6 +33,9 @@
 		181388CE2729254A009D4142 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181388CD2729254A009D4142 /* LocationManager.swift */; };
 		181BEA27273065340008374C /* ArrayAverageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BEA26273065340008374C /* ArrayAverageExtension.swift */; };
 		181BEA2F2732BF4E0008374C /* DSVExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BEA2E2732BF4D0008374C /* DSVExtension.swift */; };
+		181BEA3C273309950008374C /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BEA3B273309950008374C /* BackgroundTaskManager.swift */; };
+		181BEA4227388D830008374C /* IndicatorLEDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BEA4127388D820008374C /* IndicatorLEDView.swift */; };
+		181BEA4A273895F80008374C /* SingleSensorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BEA49273895F80008374C /* SingleSensorView.swift */; };
 		1823C963272969AE001BD871 /* Snapshot+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C95F272969AD001BD871 /* Snapshot+CoreDataClass.swift */; };
 		1823C964272969AE001BD871 /* Snapshot+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C960272969AE001BD871 /* Snapshot+CoreDataProperties.swift */; };
 		1823C965272969AE001BD871 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823C961272969AE001BD871 /* Trip+CoreDataClass.swift */; };
@@ -104,6 +107,9 @@
 		181388CD2729254A009D4142 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		181BEA26273065340008374C /* ArrayAverageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayAverageExtension.swift; sourceTree = "<group>"; };
 		181BEA2E2732BF4D0008374C /* DSVExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSVExtension.swift; sourceTree = "<group>"; };
+		181BEA3B273309950008374C /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
+		181BEA4127388D820008374C /* IndicatorLEDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorLEDView.swift; sourceTree = "<group>"; };
+		181BEA49273895F80008374C /* SingleSensorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSensorView.swift; sourceTree = "<group>"; };
 		1823C95F272969AD001BD871 /* Snapshot+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snapshot+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1823C960272969AE001BD871 /* Snapshot+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snapshot+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1823C961272969AE001BD871 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -190,6 +196,7 @@
 				180A19A626FC35570020A44A /* Settings Group */,
 				180A199C26FC35440020A44A /* BLE Group */,
 				180A196926FC34EC0020A44A /* CoolBrakesApp.swift */,
+				181BEA3B273309950008374C /* BackgroundTaskManager.swift */,
 				180A19C426FC35FF0020A44A /* ContentView.swift */,
 				1823C9712729706E001BD871 /* Assets.xcassets */,
 				180A197726FC34F20020A44A /* Info.plist */,
@@ -244,7 +251,6 @@
 				181BEA2E2732BF4D0008374C /* DSVExtension.swift */,
 				18B6BB382730125300F23F36 /* EntryFieldView.swift */,
 				1823C9E6272FC24E001BD871 /* BLEUtilitiesView.swift */,
-				1823C9C2272C0E90001BD871 /* Color.swift */,
 			);
 			path = "Settings Group";
 			sourceTree = "<group>";
@@ -253,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				180A19AD26FC35660020A44A /* SensorData.swift */,
+				181BEA49273895F80008374C /* SingleSensorView.swift */,
 				180A19AE26FC35660020A44A /* SensorView.swift */,
 				180A19AF26FC35660020A44A /* GaugeView.swift */,
 				180A19B026FC35660020A44A /* GaugeDetailView.swift */,
@@ -286,6 +293,8 @@
 			children = (
 				181388BB27285C6F009D4142 /* SnowflakeGroup.swift */,
 				18B6BB28272FE60900F23F36 /* ButtonStyles.swift */,
+				1823C9C2272C0E90001BD871 /* Color.swift */,
+				181BEA4127388D820008374C /* IndicatorLEDView.swift */,
 			);
 			path = "Icon and Style Group";
 			sourceTree = "<group>";
@@ -577,6 +586,7 @@
 			files = (
 				18B6BB392730125400F23F36 /* EntryFieldView.swift in Sources */,
 				1823C9E7272FC24E001BD871 /* BLEUtilitiesView.swift in Sources */,
+				181BEA4227388D830008374C /* IndicatorLEDView.swift in Sources */,
 				180A19B426FC35660020A44A /* SensorView.swift in Sources */,
 				180A19E726FC37540020A44A /* DataLoggingView.swift in Sources */,
 				180A19A126FC35440020A44A /* RepeaterUUID.swift in Sources */,
@@ -586,6 +596,7 @@
 				1823C9C3272C0E90001BD871 /* Color.swift in Sources */,
 				180A8DEA2711BB4000C5649E /* TripParser.swift in Sources */,
 				180A19A826FC35570020A44A /* SettingsView.swift in Sources */,
+				181BEA4A273895F80008374C /* SingleSensorView.swift in Sources */,
 				180A197626FC34F20020A44A /* CoolBrakes.xcdatamodeld in Sources */,
 				1823C9DC272EAF03001BD871 /* ExportView.swift in Sources */,
 				181BEA2F2732BF4E0008374C /* DSVExtension.swift in Sources */,
@@ -600,6 +611,7 @@
 				181BEA27273065340008374C /* ArrayAverageExtension.swift in Sources */,
 				181388B62728247D009D4142 /* TripEditorView.swift in Sources */,
 				180E50B6271088EB007A54C6 /* MultilineChartView.swift in Sources */,
+				181BEA3C273309950008374C /* BackgroundTaskManager.swift in Sources */,
 				181388C527287A5C009D4142 /* Notifications.swift in Sources */,
 				181388BC27285C6F009D4142 /* SnowflakeGroup.swift in Sources */,
 				18F7A19B271D26E00085DD1F /* DummyView.swift in Sources */,

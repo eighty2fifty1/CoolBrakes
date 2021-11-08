@@ -25,7 +25,6 @@ struct SavedTripView: View {
 
     var body: some View {
         
-        NavigationView {
             
             Form {
                 
@@ -60,13 +59,17 @@ struct SavedTripView: View {
         }
             .toolbar{
                 NavigationLink(
-                    destination: TripEditorView(selectedTripIdx: $selectedTripIdx)
+                    destination: TripEditorView(selectedTripIdx: $selectedTripIdx, tripName: trips[selectedTripIdx].name ?? "Unknown Name")
                 ){
                     Image(systemName: "gearshape")
                     Text("Edit Trip")
                 }
+                NavigationLink(
+                    destination: EmptyView()) {
+                    EmptyView()
+                }
             }
-        }
+        
     
         /*
         Picker("Trip", selection: $selectedTripIdx) {

@@ -14,7 +14,7 @@ class Notifications: ObservableObject {
     
     //asks for notification permission
     init() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) {success, error in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound, .criticalAlert]) {success, error in
             if success {
                 print("Notifications authorized")
             } else if let error = error {

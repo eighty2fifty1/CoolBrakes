@@ -35,7 +35,9 @@ struct DisplaySettingsView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .onChange(of: modelData.importedSettings.axles, perform: { value in
-                    bleManager.sendStatusMsg(msg: "<0,\(modelData.importedSettings.axles * 2),0,0,0>")
+                    if bleManager.isConnected {
+                        bleManager.sendStatusMsg(msg: "<0,\(modelData.importedSettings.axles * 2),0,0,0>")
+                    }
                 })
             }
             .padding()

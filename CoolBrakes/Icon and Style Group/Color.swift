@@ -25,4 +25,8 @@ extension Color {
     static let warning = Color("Warning")
     static let buttonDisabled = Color("ButtonDisabled")
     static let buttonEnabled = Color("ButtonEnabled")
+    static let sensorConnected = Color("SensorConnected")
+    static let sensorDisconnected = Color("SensorDisconnected")
+    static let sensorSleep = Color("SensorSleep")
+    static let sensorTimeOut = Color("SensorTimeOut")
 }

@@ -41,17 +41,17 @@ struct SensorView: View {
                 }
                 
                     VStack {
-                        NavigationLink(destination: GaugeDetailView(positionIndex: 0, temp: $bleManager.LF.temp, batt: $bleManager.LF.batt)) {
+                        NavigationLink(destination: GaugeDetailView(positionIndex: 0, temp: bleManager.LF.temp, batt: bleManager.LF.batt)) {
                             GaugeView(rawTemp: Double(bleManager.LF.temp), settings: modelData.importedSettings)
                         }
                         
                             if modelData.importedSettings.axles > 2 {
-                                NavigationLink(destination: GaugeDetailView(positionIndex: 4, temp: $bleManager.LC.temp, batt: $bleManager.LC.batt)) {
+                                NavigationLink(destination: GaugeDetailView(positionIndex: 4, temp: bleManager.LC.temp, batt: bleManager.LC.batt)) {
                                     GaugeView(rawTemp: Double(bleManager.LC.temp), settings: modelData.importedSettings)
                                 }
                             }
                             if modelData.importedSettings.axles > 1 {
-                                NavigationLink(destination: GaugeDetailView(positionIndex: 2, temp: $bleManager.LR.temp, batt: $bleManager.LR.batt)) {
+                                NavigationLink(destination: GaugeDetailView(positionIndex: 2, temp: bleManager.LR.temp, batt: bleManager.LR.batt)) {
                                     GaugeView(rawTemp: Double(bleManager.LR.temp), settings: modelData.importedSettings)
                                 }
                             }
@@ -63,17 +63,17 @@ struct SensorView: View {
                         .scaledToFit()
                 
                 VStack {
-                    NavigationLink(destination: GaugeDetailView(positionIndex: 1, temp: $bleManager.RF.temp, batt: $bleManager.RF.batt)) {
+                    NavigationLink(destination: GaugeDetailView(positionIndex: 1, temp: bleManager.RF.temp, batt: bleManager.RF.batt)) {
                         GaugeView(rawTemp: Double(bleManager.RF.temp), settings: modelData.importedSettings)
                     }
                     
                         if modelData.importedSettings.axles > 2 {
-                            NavigationLink(destination: GaugeDetailView(positionIndex: 5, temp: $bleManager.RC.temp, batt: $bleManager.RC.batt)) {
+                            NavigationLink(destination: GaugeDetailView(positionIndex: 5, temp: bleManager.RC.temp, batt: bleManager.RC.batt)) {
                                 GaugeView(rawTemp: Double(bleManager.RC.temp), settings: modelData.importedSettings)
                             }
                         }
                         if modelData.importedSettings.axles > 1 {
-                            NavigationLink(destination: GaugeDetailView(positionIndex: 3, temp: $bleManager.RR.temp, batt: $bleManager.RR.batt)) {
+                            NavigationLink(destination: GaugeDetailView(positionIndex: 3, temp: bleManager.RR.temp, batt: bleManager.RR.batt)) {
                                 GaugeView(rawTemp: Double(bleManager.RR.temp), settings: modelData.importedSettings)
                             }
                         }

@@ -39,6 +39,8 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
     @Published var LC = SensorData()
     @Published var RC = SensorData()
     
+    //@Published var sensorDataArray: [SensorData] { [LF, RF, LR, RR, LC, RC] }
+    
     private var incomingStringArray: [String] = []
     @Published var incomingIntArray: [Int] = [0, 0, 0]
     @Published var incomingStatusArray: [Int] = []

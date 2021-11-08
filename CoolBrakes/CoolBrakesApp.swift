@@ -7,6 +7,8 @@
 //with help from blckbirds.com/post/core-data-and-swiftui/
 
 import SwiftUI
+import UIKit
+import BackgroundTasks
 
 @main
 struct CoolBrakesApp: App {
@@ -17,6 +19,10 @@ struct CoolBrakesApp: App {
     @Environment(\.scenePhase) var scenePhase
     let persistenceController = PersistenceController.shared
 
+    init() {
+        //registerBackgroundTasks()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -40,6 +46,13 @@ struct CoolBrakesApp: App {
         
         
     }
+    /*
+    func registerBackgroundTasks() {
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "App communicates using CoreBluetooth", using: nil) { task in
+            self.h
+        }
+    }
+ */
     
 }
 

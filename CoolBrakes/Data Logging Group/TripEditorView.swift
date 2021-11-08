@@ -12,8 +12,8 @@ struct TripEditorView: View {
 
     
     @Binding var selectedTripIdx: Int
-    @State private var tripName: String = " "
-    @State private var tripNotes: String = " "
+    @State var tripName: String
+    @State var tripNotes: String = " "
     @State private var showingAlert = false
 
     //fetches data from file.
@@ -23,9 +23,11 @@ struct TripEditorView: View {
     predicate: NSPredicate(format: "name != nil")) var trips: FetchedResults<Trip>
     
     var body: some View {
-        VStack{
-            Text("Trip Name")
-            TextField("\(trips[selectedTripIdx].name ?? tripName)", text: $tripName)
+        Form{
+            HStack{
+                Text("Trip Name")
+                TextField("\(trips[selectedTripIdx].name!)", text: $tripName)
+            }
             Text("Trip Notes")
             TextEditor(text: $tripNotes)
             Button(action: {
@@ -47,10 +49,12 @@ struct TripEditorView: View {
                                 showingAlert = false
                             })])
         }
+        /*
         .onDisappear(perform: {
             showingAlert = true
             print("View did disappear")
         })
+ */
     }
 }
 
@@ -58,7 +62,7 @@ struct TripEditorView_Previews: PreviewProvider {
     static let context = PersistenceController.preview.container.viewContext
     
     static var previews: some View {
-        TripEditorView(selectedTripIdx: .constant(0))
+        TripEditorView(selectedTripIdx: .constant(0), tripName: "Trip 1")
             .environment(\.managedObjectContext, context)
 
     }
