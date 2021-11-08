@@ -25,16 +25,23 @@ struct SensorView: View {
                 Spacer()
                 VStack{
                     Spacer()
+                    IndicatorLEDView(sensorStatus: bleManager.sensorStatus.lf)
                     if bleManager.LF.batt < 20 {
                         Image(systemName: "battery.25")
                     }
                     Spacer()
-                    if bleManager.LC.batt < 20 && modelData.importedSettings.axles > 2{
-                        Image(systemName: "battery.25")
+                    if modelData.importedSettings.axles > 2 {
+                        IndicatorLEDView(sensorStatus: bleManager.sensorStatus.lc)
+                        if bleManager.LC.batt < 20 {
+                            Image(systemName: "battery.25")
+                        }
                     }
                     Spacer()
-                    if bleManager.LR.batt < 20 && modelData.importedSettings.axles > 1 {
-                        Image(systemName: "battery.25")
+                    if modelData.importedSettings.axles > 1 {
+                        IndicatorLEDView(sensorStatus: bleManager.sensorStatus.lr)
+                        if bleManager.LR.batt < 20 {
+                            Image(systemName: "battery.25")
+                        }
                     }
                     Spacer()
 
@@ -82,16 +89,23 @@ struct SensorView: View {
                 
                 VStack{
                     Spacer()
+                    IndicatorLEDView(sensorStatus: bleManager.sensorStatus.rf)
                     if bleManager.RF.batt < 20 {
                         Image(systemName: "battery.25")
                     }
                     Spacer()
-                    if bleManager.RC.batt < 20 && modelData.importedSettings.axles > 2 {
-                        Image(systemName: "battery.25")
+                    if modelData.importedSettings.axles > 2 {
+                        IndicatorLEDView(sensorStatus: bleManager.sensorStatus.rc)
+                        if bleManager.RC.batt < 20 {
+                            Image(systemName: "battery.25")
+                        }
                     }
                     Spacer()
-                    if bleManager.RR.batt < 20 && modelData.importedSettings.axles > 1 {
-                        Image(systemName: "battery.25")
+                    if modelData.importedSettings.axles > 1 {
+                        IndicatorLEDView(sensorStatus: bleManager.sensorStatus.rr)
+                        if bleManager.RR.batt < 20 {
+                            Image(systemName: "battery.25")
+                        }
                     }
                     Spacer()
 

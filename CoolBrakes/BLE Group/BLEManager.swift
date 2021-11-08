@@ -38,9 +38,8 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
     @Published var RR = SensorData()
     @Published var LC = SensorData()
     @Published var RC = SensorData()
-    
-    //@Published var sensorDataArray: [SensorData] { [LF, RF, LR, RR, LC, RC] }
-    
+    @Published var sensorStatus = SensorStatus()
+        
     private var incomingStringArray: [String] = []
     @Published var incomingIntArray: [Int] = [0, 0, 0]
     @Published var incomingStatusArray: [Int] = []
@@ -225,7 +224,12 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
     }
     
     func parseStatusMsgData(incoming: [Int]) {
-        
+        sensorStatus.lf = incoming[0]
+        sensorStatus.rf = incoming[1]
+        sensorStatus.lr = incoming[2]
+        sensorStatus.rr = incoming[3]
+        sensorStatus.lc = incoming[4]
+        sensorStatus.rc = incoming[5]
         //incoming status msg key
         // <
         // Int[0 - 5], sensor status 0: not connected, 1: normal operation, 2: timed out for unknown reason, 3: sleeping (commanded or inactivity)

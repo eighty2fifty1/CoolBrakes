@@ -64,8 +64,8 @@ struct GaugeDetailView: View {
                 .buttonStyle(StandardButton())
             }
             VStack {
-                SingleSensorView(positionIndex: positionIndex)
-                //GaugeView(rawTemp: Double(temp), settings: modelData.importedSettings)
+                //SingleSensorView(positionIndex: positionIndex)
+                GaugeView(rawTemp: Double(temp), settings: modelData.importedSettings)
                 Text("POSIT: \(positName[positionIndex])")
             }
             VStack{

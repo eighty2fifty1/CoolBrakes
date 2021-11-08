@@ -13,3 +13,12 @@ struct SensorData {
     var batt: Int = 0 //debug: Int.random(in: 24...26) //change back to 0 for production
     var posit: Int = 0
 }
+
+struct SensorStatus {
+    var lf: Int = 0
+    var rf: Int = 0
+    var lr: Int = 0
+    var rr: Int = 0
+    var lc: Int = 0
+    var rc: Int = 0
+}
