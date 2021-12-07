@@ -23,47 +23,23 @@ struct SensorView: View {
         NavigationView{
             HStack {
                 Spacer()
-                VStack{
-                    Spacer()
-                    IndicatorLEDView(sensorStatus: bleManager.sensorStatus.lf)
-                    if bleManager.LF.batt < 20 {
-                        Image(systemName: "battery.25")
+                VStack {
+                    NavigationLink(destination: GaugeDetailView(positionIndex: 0, temp: bleManager.LF.temp, batt: bleManager.LF.batt)) {
+                        SingleSensorView(positionIndex: 0)
                     }
-                    Spacer()
-                    if modelData.importedSettings.axles > 2 {
-                        IndicatorLEDView(sensorStatus: bleManager.sensorStatus.lc)
-                        if bleManager.LC.batt < 20 {
-                            Image(systemName: "battery.25")
-                        }
-                    }
-                    Spacer()
-                    if modelData.importedSettings.axles > 1 {
-                        IndicatorLEDView(sensorStatus: bleManager.sensorStatus.lr)
-                        if bleManager.LR.batt < 20 {
-                            Image(systemName: "battery.25")
-                        }
-                    }
-                    Spacer()
-
-                }
-                
-                    VStack {
-                        NavigationLink(destination: GaugeDetailView(positionIndex: 0, temp: bleManager.LF.temp, batt: bleManager.LF.batt)) {
-                            GaugeView(rawTemp: Double(bleManager.LF.temp), settings: modelData.importedSettings)
-                        }
-                        
-                            if modelData.importedSettings.axles > 2 {
-                                NavigationLink(destination: GaugeDetailView(positionIndex: 4, temp: bleManager.LC.temp, batt: bleManager.LC.batt)) {
-                                    GaugeView(rawTemp: Double(bleManager.LC.temp), settings: modelData.importedSettings)
-                                }
-                            }
-                            if modelData.importedSettings.axles > 1 {
-                                NavigationLink(destination: GaugeDetailView(positionIndex: 2, temp: bleManager.LR.temp, batt: bleManager.LR.batt)) {
-                                    GaugeView(rawTemp: Double(bleManager.LR.temp), settings: modelData.importedSettings)
-                                }
-                            }
                     
-                    }
+                        if modelData.importedSettings.axles > 2 {
+                            NavigationLink(destination: GaugeDetailView(positionIndex: 4, temp: bleManager.LC.temp, batt: bleManager.LC.batt)) {
+                                SingleSensorView(positionIndex: 4)
+                            }
+                        }
+                        if modelData.importedSettings.axles > 1 {
+                            NavigationLink(destination: GaugeDetailView(positionIndex: 2, temp: bleManager.LR.temp, batt: bleManager.LR.batt)) {
+                                SingleSensorView(positionIndex: 2)
+                            }
+                        }
+                
+                }
                 
                 
                     Image("trucktrailer")
@@ -71,44 +47,20 @@ struct SensorView: View {
                 
                 VStack {
                     NavigationLink(destination: GaugeDetailView(positionIndex: 1, temp: bleManager.RF.temp, batt: bleManager.RF.batt)) {
-                        GaugeView(rawTemp: Double(bleManager.RF.temp), settings: modelData.importedSettings)
+                        SingleSensorView(positionIndex: 1)
                     }
                     
                         if modelData.importedSettings.axles > 2 {
                             NavigationLink(destination: GaugeDetailView(positionIndex: 5, temp: bleManager.RC.temp, batt: bleManager.RC.batt)) {
-                                GaugeView(rawTemp: Double(bleManager.RC.temp), settings: modelData.importedSettings)
+                                SingleSensorView(positionIndex: 5)
                             }
                         }
                         if modelData.importedSettings.axles > 1 {
                             NavigationLink(destination: GaugeDetailView(positionIndex: 3, temp: bleManager.RR.temp, batt: bleManager.RR.batt)) {
-                                GaugeView(rawTemp: Double(bleManager.RR.temp), settings: modelData.importedSettings)
+                                SingleSensorView(positionIndex: 3)
                             }
                         }
                 
-                }
-                
-                VStack{
-                    Spacer()
-                    IndicatorLEDView(sensorStatus: bleManager.sensorStatus.rf)
-                    if bleManager.RF.batt < 20 {
-                        Image(systemName: "battery.25")
-                    }
-                    Spacer()
-                    if modelData.importedSettings.axles > 2 {
-                        IndicatorLEDView(sensorStatus: bleManager.sensorStatus.rc)
-                        if bleManager.RC.batt < 20 {
-                            Image(systemName: "battery.25")
-                        }
-                    }
-                    Spacer()
-                    if modelData.importedSettings.axles > 1 {
-                        IndicatorLEDView(sensorStatus: bleManager.sensorStatus.rr)
-                        if bleManager.RR.batt < 20 {
-                            Image(systemName: "battery.25")
-                        }
-                    }
-                    Spacer()
-
                 }
                 
                 Spacer()
