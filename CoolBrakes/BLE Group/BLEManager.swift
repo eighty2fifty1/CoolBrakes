@@ -167,7 +167,8 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
             incomingStringArray = statusMsg.components(separatedBy: "i")
             incomingStatusArray = incomingStringArray.map{Int($0)!}
             parseStatusMsgData(incoming: self.incomingStatusArray)
-            customLog.notice("Status: \(self.statusMsg)")
+            //customLog.notice("Status: \(self.statusMsg)")
+            print(self.statusMsg ?? "status msg received")
             
             
         }
@@ -224,12 +225,12 @@ class BLEManager: NSObject, ObservableObject, CBPeripheralDelegate, CBCentralMan
     }
     
     func parseStatusMsgData(incoming: [Int]) {
-        sensorStatus.lf = incoming[0]
-        sensorStatus.rf = incoming[1]
-        sensorStatus.lr = incoming[2]
-        sensorStatus.rr = incoming[3]
-        sensorStatus.lc = incoming[4]
-        sensorStatus.rc = incoming[5]
+        sensorStatus.status[0] = incoming[0]
+        sensorStatus.status[1] = incoming[1]
+        sensorStatus.status[2] = incoming[2]
+        sensorStatus.status[3] = incoming[3]
+        sensorStatus.status[4] = incoming[4]
+        sensorStatus.status[5] = incoming[5]
         //incoming status msg key
         // <
         // Int[0 - 5], sensor status 0: not connected, 1: normal operation, 2: timed out for unknown reason, 3: sleeping (commanded or inactivity)

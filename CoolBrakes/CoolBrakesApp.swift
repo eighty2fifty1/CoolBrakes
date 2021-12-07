@@ -42,6 +42,9 @@ struct CoolBrakesApp: App {
             if bleManager.didDisconnect {
                 notificationManager.repeaterDisconnectAlert()
             }
+            else if bleManager.isConnected {
+                notificationManager.repeaterConnectAlert()
+            }
         })
         
         

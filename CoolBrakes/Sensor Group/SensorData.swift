@@ -15,6 +15,7 @@ struct SensorData {
 }
 
 struct SensorStatus {
+    var status: [Int] = [0, 0, 0, 0, 0, 0]
     var lf: Int = 0
     var rf: Int = 0
     var lr: Int = 0

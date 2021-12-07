@@ -22,16 +22,34 @@ struct SingleSensorView: View {
     }
     
     var body: some View {
-        HStack {
-            VStack {
-                IndicatorLEDView(sensorStatus: bleManager.incomingStatusArray[positionIndex] )
-                if battArray[positionIndex] < 20 {
-                    Image(systemName: "battery.25")
+        if positionIndex == 0 || positionIndex == 2 || positionIndex == 4 {
+            HStack {
+                VStack {
+                    IndicatorLEDView(sensorStatus: bleManager.sensorStatus.status[positionIndex] )
+                    if battArray[positionIndex] < 20 {
+                        Image(systemName: "battery.25")
+                    }
+                }
+
+                NavigationLink(destination: GaugeDetailView(positionIndex: positionIndex, temp: tempArray[positionIndex], batt: battArray[positionIndex])) {
+                    GaugeView(rawTemp: Double(tempArray[positionIndex]), settings: modelData.importedSettings)
                 }
             }
-            NavigationLink(destination: GaugeDetailView(positionIndex: positionIndex, temp: tempArray[positionIndex], batt: battArray[positionIndex])) {
-                GaugeView(rawTemp: Double(tempArray[positionIndex]), settings: modelData.importedSettings)
+            .frame(height: 200.0)
+        }
+        else {
+            HStack {
+                NavigationLink(destination: GaugeDetailView(positionIndex: positionIndex, temp: tempArray[positionIndex], batt: battArray[positionIndex])) {
+                    GaugeView(rawTemp: Double(tempArray[positionIndex]), settings: modelData.importedSettings)
+                }
+                VStack {
+                    IndicatorLEDView(sensorStatus: bleManager.sensorStatus.status[positionIndex] )
+                    if battArray[positionIndex] < 20 {
+                        Image(systemName: "battery.25")
+                    }
+                }
             }
+            .frame(height: 200.0)
         }
     }
 }
@@ -44,5 +62,10 @@ struct SingleSensorView_Previews: PreviewProvider {
         SingleSensorView(positionIndex: 3)
             .environmentObject(modelData)
             .environmentObject(bleManager)
+        
+        SingleSensorView(positionIndex: 2)
+            .environmentObject(modelData)
+            .environmentObject(bleManager)
+        
     }
 }

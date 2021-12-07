@@ -49,6 +49,7 @@ struct GaugeView: View {
             //Text(temp)
             
         TTGaugeView(angle: angle, sections: setGauge(min: settings.minTemp, max: settings.maxTemp, caution: settings.cautionTemp, warning: settings.warningTemp), settings: gaugeSettings, value: ((rawTemp - settings.minTemp) / (settings.maxTemp - settings.minTemp)), valueDescription: valueDescription, gaugeDescription: gaugeDescription)
+            
     }
     
     //converts only if settings call for metric units
