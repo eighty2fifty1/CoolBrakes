@@ -22,6 +22,12 @@ struct Settings: Hashable, Codable {
     var maxObservedTemp: [Double]
     var avgObservedTemp: [Double]
     var metricUnits: Bool
+    //var truckColorString: String
+    var dually: Bool
+    var quadCab: Bool
+    var sunroof: Bool
+    var gooseneck: Bool
+    //var trailerColorString: String
     
 
     /*

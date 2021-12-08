@@ -1,14 +1,6 @@
 {
-  "avgObservedTemp" : [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
-  "alertTemp" : 74,
-  "cautionTemp" : 175,
+  "quadCab" : true,
+  "dually" : false,
   "maxObservedTemp" : [
     0,
     0,
@@ -17,7 +9,9 @@
     0,
     0
   ],
+  "alertTemp" : 74,
   "metricUnits" : false,
+  "axles" : 3,
   "minObservedTemp" : [
     100,
     100,
@@ -26,8 +20,18 @@
     100,
     100
   ],
-  "axles" : 3,
-  "minTemp" : 50,
+  "avgObservedTemp" : [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "cautionTemp" : 175,
+  "maxTemp" : 250,
   "warningTemp" : 200,
-  "maxTemp" : 250
+  "minTemp" : 50,
+  "sunroof" : false,
+  "gooseneck" : true
 }

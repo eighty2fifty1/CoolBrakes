@@ -41,10 +41,11 @@ struct SensorView: View {
                 
                 }
                 
-                
+                TruckIconView(truckColor: .red, dually: modelData.importedSettings.dually, quadCab: modelData.importedSettings.quadCab, sunroof: modelData.importedSettings.sunroof, gooseneck: modelData.importedSettings.gooseneck, trailerColor: .gray)
+                /*
                     Image("trucktrailer")
                         .scaledToFit()
-                
+                */
                 VStack {
                     NavigationLink(destination: GaugeDetailView(positionIndex: 1, temp: bleManager.RF.temp, batt: bleManager.RF.batt)) {
                         SingleSensorView(positionIndex: 1)

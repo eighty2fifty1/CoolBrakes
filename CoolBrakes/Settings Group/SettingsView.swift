@@ -27,6 +27,7 @@ struct SettingsView: View {
         TabView {
             BLEUtilitiesView()
             DisplaySettingsView()
+            TruckIconSettingsView()
         }
         .tabViewStyle(PageTabViewStyle())
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
